@@ -1,11 +1,62 @@
 # Chess Game
 
+## Implementation
+
+### UML class diagram
+
+This class diagram is roughly finished. It shows how the game logic is structured. There is no view class or controller class. 
+<img src="resources/01_uml_class_diagram.png" alt="UML class diagram">
+
+### Mockups 
+#### Start window
+<img src="resources/02_mockups/01_StartView.png" alt="Start window">
+
+#### Game window
+<img src="resources/02_mockups/02_GameView.png" alt="Game window">
+
+#### Promotion window
+<img src="resources/02_mockups/03_ChooseFigureView.png" alt="Promotion window">
+
+#### Winner window
+<img src="resources/02_mockups/04_GameEndingView.png" alt="Winner window">
+
+### General information
+- <b>Local</b>: Game is only playable locally
+- <b>1v1</b>: Game is playable against a friend
+- <b>(1vComputer)</b>: Probably no implementation, but you never know
+
+### Used best practices and conventions
+- Use of MVC (Model, View, Controller) framework - Allows the system to be open for modification or usage of single modules elsewhere
+- SOLID - Object-oriented-design-principle: 
+    - Single-responsibility. Each class / method / attribute has a single-responsibility.
+    - Open / closed principle. Open for extensions, closed for modification
+    - Liskov substitution principle. Sub classes must have atleast the same functionalities as their super classes.
+    - Interface segregation. Classes that implement interfaces should not implement methods which they don't need.
+    - Dependency inversion. Changes in sub classes should not lead to changes in super classes
+- Common Java naming conventions
+- Classes get an introduction comment
+- The four main OOP concepts: 
+    - Abstraction
+    - Encapsulation
+    - Polymorphism
+    - Inheritance
+
+### Testing
+Testing is done with JUnit-Tests. 
+
+### System requirements, How to compile
+TODO
+### Tools (used for creation)
+TODO
+#### Licence
+TODO
+
 ## Game Details
 ### Introduction
 Chess is a famous game for two players. Each player has the <b>same</b> set of figures and all of them have individual movement. The game is played on a 8x8 black/white squared battleground. The goal is to eliminate the other players <u>king</u>. To eliminate a figure put your figure on the space your enemies stand. There are some special rules that will be explained below. 
 
 ### Chessboard, Figures and movement
-<img src="resources/chessboard.png" alt="Chessboard 8x8" width="400px"> <img src="resources/figures.png" alt="Figures and their movements" width="500px">
+<img src="resources/03_pictures/01_chessboard.png" alt="Chessboard 8x8" width="400px"> <img src="resources/03_pictures/02_figures.png" alt="Figures and their movements" width="500px">
 
 Source: https://www.wikihow.com/Sample/Chessboard-Diagram, https://www.wikihow.com/Sample/Chess-Rules, last opened: 17th March 2020
 
@@ -23,15 +74,3 @@ Source: https://www.wikihow.com/Sample/Chessboard-Diagram, https://www.wikihow.c
 - <b>Castling</b>: This can be done on the Rook's and the King's first move only. If no other pieces are in between them or could potentially move between them, the King is moved two spaces closer to the Rook. The Rook is then placed on the opposite side of the King. The King cannot be in check or pass through check when performing this move. 
 
 Source: Website https://www.wikihow.com/Play-Chess, last opened: 17th March 2020
-
-### Implementation
-- <b>Local</b>: Game is only playable locally
-- <b>1v1</b>: Game is playable against a friend
-- <b>(1vComputer)</b>: Probably no implementation, but you never know
-
-## System requirements, How to compile
-TODO
-## Tools (used for creation)
-TODO
-#### Licence
-TODO
