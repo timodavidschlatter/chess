@@ -5,20 +5,14 @@
 ### UML class diagram
 
 This class diagram is roughly finished. It shows how the game logic is structured. There is no view class or controller class. 
-<img src="resources/01_uml_class_diagram.png" alt="UML class diagram">
+<img src="resources/01_uml_class_diagram.png" alt="UML class diagram" width="750">
 
 ### Mockups 
-#### Start window
-<img src="resources/02_mockups/01_StartView.png" alt="Start window">
 
-#### Game window
-<img src="resources/02_mockups/02_GameView.png" alt="Game window">
-
-#### Promotion window
+<img src="resources/02_mockups/01_StartView.png" alt="Start window" width="400">
+<img src="resources/02_mockups/02_GameView.png" alt="Game window" width="400">
 <img src="resources/02_mockups/03_ChooseFigureView.png" alt="Promotion window">
-
-#### Winner window
-<img src="resources/02_mockups/04_GameEndingView.png" alt="Winner window">
+<img src="resources/02_mockups/04_GameEndingView.png" alt="Winner window" >
 
 ### General information
 - <b>Local</b>: Game is only playable locally
