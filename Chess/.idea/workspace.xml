@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b7249cd-2005-4c17-a800-76f6a6fa2371" name="Default Changelist" comment="" />
+    <list default="true" id="2b7249cd-2005-4c17-a800-76f6a6fa2371" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/start/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/StartView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -53,8 +65,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.22" />
     <property name="project.structure.side.proportion" value="0.17806041" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
@@ -117,6 +129,7 @@
       <workItem from="1587674528066" duration="165000" />
       <workItem from="1587713674268" duration="4000" />
       <workItem from="1587751972449" duration="38000" />
+      <workItem from="1587753411241" duration="3289000" />
     </task>
     <servers />
   </component>
@@ -124,34 +137,51 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2475" y="188" width="800" height="672" key="#Project_Structure" timestamp="1587754956832">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2475" y="188" width="800" height="672" key="#Project_Structure/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587754956832" />
     <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587673975048">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1587673975048" />
-    <state width="1398" height="368" key="GridCell.Tab.0.bottom" timestamp="1587674792311">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="2688" y="239" width="374" height="570" key="#com.intellij.ide.util.MemberChooser" timestamp="1587756379379">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2688" y="239" width="374" height="570" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587756379379" />
+    <state x="2126" y="144" width="432" height="506" key="FileChooserDialogImpl" timestamp="1587754750039">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2126" y="144" width="432" height="506" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587754750039" />
+    <state width="1878" height="281" key="GridCell.Tab.0.bottom" timestamp="1587757067471">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="368" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587674792311" />
-    <state width="1398" height="368" key="GridCell.Tab.0.center" timestamp="1587674792309">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1878" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587757067471" />
+    <state width="1878" height="281" key="GridCell.Tab.0.center" timestamp="1587757067471">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="368" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1587674792309" />
-    <state width="1398" height="368" key="GridCell.Tab.0.left" timestamp="1587674792308">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1878" height="281" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587757067471" />
+    <state width="1878" height="281" key="GridCell.Tab.0.left" timestamp="1587757067471">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="368" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1587674792308" />
-    <state width="1398" height="368" key="GridCell.Tab.0.right" timestamp="1587674792310">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1878" height="281" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587757067471" />
+    <state width="1878" height="281" key="GridCell.Tab.0.right" timestamp="1587757067471">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="368" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1587674792310" />
+    <state width="1878" height="281" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587757067471" />
     <state x="258" y="123" key="Maven.ArtifactSearchDialog" timestamp="1587671879910">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="258" y="123" key="Maven.ArtifactSearchDialog/0.23.1440.877@0.23.1440.877" timestamp="1587671879910" />
-    <state x="208" y="43" key="SettingsEditor" timestamp="1587670292653">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="2197" y="25" width="1024" height="840" key="SettingsEditor" timestamp="1587754933133">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1587670292653" />
+    <state x="2197" y="25" width="1024" height="840" key="SettingsEditor/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587754933133" />
     <state x="413" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1587751983980">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
