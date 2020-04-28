@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.control.Label?>
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/css/game.css">
+   <center>
+        <VBox id="container">
+            <HBox><Label text="%gameView.pl2"/></HBox>
+            <HBox id="main">
+                <VBox styleClass="bench"></VBox>
+                <VBox></VBox>
+                <GridPane></GridPane>
+                <VBox styleClass="bench"></VBox>
+            </HBox>
+            <HBox></HBox>
+            <HBox><Label text="%gameView.pl1"/></HBox>
+        </VBox>
+   </center>
+</BorderPane>

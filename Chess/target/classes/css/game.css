@@ -1,0 +1,34 @@
+BorderPane {
+    -fx-pref-height: 650px;
+    -fx-pref-width: 650px;
+    -fx-font-family: Ubuntu;
+}
+
+HBox {
+    -fx-pref-width: 650px;
+    -fx-pref-height: 50px;
+}
+
+VBox {
+    -fx-pref-height: 450px;
+    -fx-pref-width: 50px;
+}
+
+GridPane {
+    -fx-pref-width: 500px;
+    -fx-pref-height: 500px;
+    -fx-background-color: black;
+}
+
+.bench {
+    -fx-background-color: grey;
+}
+
+#container {
+    -fx-pref-height: 600px;
+    -fx-pref-width: 650px;
+}
+
+#main {
+    -fx-pref-height: 450px;
+}
