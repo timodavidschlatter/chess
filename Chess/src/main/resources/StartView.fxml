@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="@menu.css">
-    <top>
-        <Label styleClass="title" text="%startView.title"></Label>
-    </top>
+<BorderPane stylesheets="@menu.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <center>
        <VBox>
-           <Button text="%startView.start"></Button>
-           <Button text="%startView.instructions"></Button>
-           <Button text="%startView.exit"></Button>
+           <Label styleClass="title" text="%startView.title" />
+           <Button text="%startView.start" />
+           <Button text="%startView.instructions" />
+           <Button text="%startView.exit" />
        </VBox>
    </center>
 </BorderPane>
