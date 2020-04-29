@@ -7,6 +7,7 @@ BorderPane {
 HBox {
     -fx-pref-width: 650px;
     -fx-pref-height: 50px;
+
 }
 
 VBox {
@@ -17,7 +18,7 @@ VBox {
 GridPane {
     -fx-pref-width: 500px;
     -fx-pref-height: 500px;
-    -fx-background-color: black;
+    -fx-grid-lines-visible: true;
 }
 
 .bench {

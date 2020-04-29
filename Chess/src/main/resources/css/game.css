@@ -17,10 +17,7 @@ VBox {
 GridPane {
     -fx-pref-width: 500px;
     -fx-pref-height: 500px;
-}
-
-RowContraints {
-
+    -fx-grid-lines-visible: true;
 }
 
 .bench {
