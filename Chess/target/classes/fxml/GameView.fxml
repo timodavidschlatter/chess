@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
     <center>
         <VBox id="container" alignment="CENTER">
             <!--<HBox>
                 <Label text="%gameView.pl2" />
             </HBox>-->
-            <HBox id="main" alignment="CENTER">
-                <GridPane>
+            <HBox fx:id="main" id="main" alignment="CENTER">
+                <!--<GridPane>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
                     </rowConstraints>
                     <columnConstraints>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
                     </columnConstraints>
                     <children>
-                        <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <HBox GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                     </children>
-                </GridPane>
+                </GridPane>-->
             </HBox>
-                <!--<VBox styleClass="bench" />
-                <VBox />-->
+            <!--<VBox styleClass="bench" />
+            <VBox />-->
 
-                <!--<VBox styleClass="bench" />-->
+            <!--<VBox styleClass="bench" />-->
 
             <!--<HBox />
             <HBox>

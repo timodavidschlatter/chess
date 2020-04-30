@@ -1,3 +1,4 @@
 module-info.class
 start/Pit.class
+controller/GameController.class
 start/Start.class
