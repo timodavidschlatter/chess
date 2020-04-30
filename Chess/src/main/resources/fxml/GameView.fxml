@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
     <center>
-        <VBox id="container">
-            <HBox>
+        <VBox id="container" alignment="CENTER">
+            <!--<HBox>
                 <Label text="%gameView.pl2" />
-            </HBox>
-            <HBox id="main">
-                <VBox styleClass="bench" />
-                <VBox />
+            </HBox>-->
+            <HBox fx:id="main" id="main" alignment="CENTER">
                 <GridPane>
                     <rowConstraints>
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" />
                     </rowConstraints>
                     <columnConstraints>
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
                     </columnConstraints>
-               <children>
-                  <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" />
-
-               </children>
+                    <children>
+                        <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    </children>
                 </GridPane>
-                <VBox styleClass="bench" />
             </HBox>
-            <HBox />
+                <!--<VBox styleClass="bench" />
+                <VBox />-->
+
+                <!--<VBox styleClass="bench" />-->
+
+            <!--<HBox />
             <HBox>
                 <Label text="%gameView.pl1" />
-            </HBox>
+            </HBox>-->
         </VBox>
     </center>
 </BorderPane>

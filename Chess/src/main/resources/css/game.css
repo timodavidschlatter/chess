@@ -1,22 +1,22 @@
-BorderPane {
-    -fx-pref-height: 650px;
+#root {
+    -fx-pref-height: 500px;
     -fx-pref-width: 650px;
     -fx-font-family: Ubuntu;
 }
 
-HBox {
-    -fx-pref-width: 650px;
-    -fx-pref-height: 50px;
+#container {
+
 }
 
-VBox {
-    -fx-pref-height: 450px;
-    -fx-pref-width: 50px;
+#main {
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-radius: 1px;
+    -fx-border-width: 2px;
+
 }
 
 GridPane {
-    -fx-pref-width: 500px;
-    -fx-pref-height: 500px;
     -fx-grid-lines-visible: true;
 }
 
@@ -24,11 +24,3 @@ GridPane {
     -fx-background-color: grey;
 }
 
-#container {
-    -fx-pref-height: 600px;
-    -fx-pref-width: 650px;
-}
-
-#main {
-    -fx-pref-height: 450px;
-}
