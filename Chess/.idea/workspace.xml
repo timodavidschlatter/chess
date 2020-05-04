@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b7249cd-2005-4c17-a800-76f6a6fa2371" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/GameView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -135,6 +138,7 @@
       <workItem from="1587927325189" duration="3563000" />
       <workItem from="1587974358426" duration="352000" />
       <workItem from="1588094480069" duration="6951000" />
+      <workItem from="1588617099358" duration="3791000" />
     </task>
     <servers />
   </component>
@@ -151,33 +155,34 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1587673975048" />
-    <state x="2688" y="239" width="374" height="570" key="#com.intellij.ide.util.MemberChooser" timestamp="1587756379379">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="576" y="217" width="357" height="463" key="#com.intellij.ide.util.MemberChooser" timestamp="1588620331233">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state x="576" y="217" width="357" height="463" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1588620331233" />
     <state x="2688" y="239" width="374" height="570" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587756379379" />
     <state x="2126" y="144" width="432" height="506" key="FileChooserDialogImpl" timestamp="1587754750039">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2126" y="144" width="432" height="506" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1587754750039" />
-    <state width="1398" height="230" key="GridCell.Tab.0.bottom" timestamp="1588264472779">
+    <state width="1398" height="169" key="GridCell.Tab.0.bottom" timestamp="1588621781536">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1588264472779" />
+    <state width="1398" height="169" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1588621781536" />
     <state width="1878" height="133" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1588249970550" />
-    <state width="1398" height="230" key="GridCell.Tab.0.center" timestamp="1588264472778">
+    <state width="1398" height="169" key="GridCell.Tab.0.center" timestamp="1588621781535">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1588264472778" />
+    <state width="1398" height="169" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1588621781535" />
     <state width="1878" height="133" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1588249970550" />
-    <state width="1398" height="230" key="GridCell.Tab.0.left" timestamp="1588264472777">
+    <state width="1398" height="169" key="GridCell.Tab.0.left" timestamp="1588621781534">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1588264472777" />
+    <state width="1398" height="169" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1588621781534" />
     <state width="1878" height="133" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1588249970550" />
-    <state width="1398" height="230" key="GridCell.Tab.0.right" timestamp="1588264472779">
+    <state width="1398" height="169" key="GridCell.Tab.0.right" timestamp="1588621781536">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1588264472779" />
+    <state width="1398" height="169" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1588621781536" />
     <state width="1878" height="133" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1055@1920.0.1920.1080" timestamp="1588249970550" />
     <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1588247141442">
       <screen x="1920" y="0" width="1920" height="1080" />

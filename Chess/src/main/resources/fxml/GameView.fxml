@@ -10,31 +10,7 @@
                 <Label text="%gameView.pl2" />
             </HBox>-->
             <HBox fx:id="main" id="main" alignment="CENTER">
-                <!--<GridPane>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0"/>
-                    </rowConstraints>
-                    <columnConstraints>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                        <ColumnConstraints minWidth="10.0" prefWidth="50.0"/>
-                    </columnConstraints>
-                    <children>
-                        <HBox GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                    </children>
-                </GridPane>-->
+
             </HBox>
             <!--<VBox styleClass="bench" />
             <VBox />-->
