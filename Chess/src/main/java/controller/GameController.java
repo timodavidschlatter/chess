@@ -24,19 +24,18 @@ public class GameController {
      *
      */
     private void createChessBoard() {
+        final int size = 8;
         GridPane chessBoard = new GridPane();
-        chessBoard.setPrefWidth(400);
         chessBoard.minHeightProperty().bind(chessBoard.widthProperty());
         chessBoard.maxHeightProperty().bind(chessBoard.widthProperty());
-        final int size = 8;
+
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
                 StackPane tile = new StackPane();
-                tile.setPrefHeight(50);
-                tile.setPrefWidth(50);
                 chessBoard.add(tile, i, j);
             }
         }
+
         main.getChildren().add(chessBoard);
     }
 }
