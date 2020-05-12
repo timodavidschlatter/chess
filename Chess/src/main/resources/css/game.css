@@ -2,25 +2,16 @@
     -fx-pref-height: 500px;
     -fx-pref-width: 650px;
     -fx-font-family: Ubuntu;
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
 }
 
-#container {
-
-}
-
-#main {
-    -fx-border-color: black;
-    -fx-border-style: solid;
-    -fx-border-radius: 1px;
-    -fx-border-width: 2px;
-
-}
-
-GridPane {
+.gridPane {
     -fx-grid-lines-visible: true;
 }
 
 .bench {
+    -fx-pref-width: 50px;
     -fx-background-color: grey;
 }
 

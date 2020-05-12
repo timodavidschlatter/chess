@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
-    <center>
-        <VBox id="container" alignment="CENTER">
-            <!--<HBox>
-                <Label text="%gameView.pl2" />
-            </HBox>-->
-            <HBox fx:id="main" id="main" alignment="CENTER">
-
-            </HBox>
-            <!--<VBox styleClass="bench" />
-            <VBox />-->
-
-            <!--<VBox styleClass="bench" />-->
-
-            <!--<HBox />
-            <HBox>
-                <Label text="%gameView.pl1" />
-            </HBox>-->
-        </VBox>
-    </center>
-</BorderPane>
+<GridPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+    <rowConstraints>
+        <RowConstraints percentHeight="5.0" />
+        <RowConstraints percentHeight="80.0" />
+        <RowConstraints percentHeight="15.0" />
+        <RowConstraints percentHeight="0.0" />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints percentWidth="10" />
+        <ColumnConstraints percentWidth="10" />
+        <ColumnConstraints percentWidth="70" />
+        <ColumnConstraints percentWidth="10" />
+    </columnConstraints>
+    <children>
+        <Label text="%gameView.pl2" GridPane.columnIndex="2" />
+        <VBox styleClass="bench" GridPane.rowIndex="1" />
+        <GridPane fx:id="rowIdentifier" styleClass="gridPane" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <GridPane fx:id="chessBoard" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <VBox styleClass="bench" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <GridPane fx:id="columnIdentifier" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Label text="%gameView.pl1" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    </children>
+</GridPane>
