@@ -1,11 +1,9 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 
 public class GameController {
 
@@ -23,63 +21,71 @@ public class GameController {
 
     @FXML
     private void initialize() {
-        createRowsIdentifier();
-        createChessBoard();
-        createColumnIdentifier();
+        createGameView();
     }
 
     /**
-     * Creates the Chessboard (GridPane)
+     *
      */
-    private void createChessBoard() {
-        //chessBoard.minHeightProperty().bind(chessBoard.widthProperty());
-        //chessBoard.maxHeightProperty().bind(chessBoard.widthProperty());
+    private void createGameView() {
+        String[] columnIdentifierText = {"A", "B", "C", "D", "E", "F", "G", "H"};
+        ColumnConstraints columnConstraints = new ColumnConstraints();
+        RowConstraints rowConstraints = new RowConstraints();
 
-        ColumnConstraints column = new ColumnConstraints();
-        column.setPercentWidth(12.5);
-
-        RowConstraints row = new RowConstraints();
-        row.setPercentHeight(12.5);
-        //row.maxHeightProperty().bind(chessBoard.widthProperty().divide(8));
-        //row.minHeightProperty().bind(chessBoard.widthProperty().divide(8));
+        columnConstraints.setPercentWidth(12.5);
+        rowConstraints.setPercentHeight(12.5);
 
         for(int i = 0; i < numOfTiles; i++) {
-            chessBoard.getColumnConstraints().add(column);
-            chessBoard.getRowConstraints().add(row);
+            addTileToRowIdentifier((numOfTiles - i) + "", i, rowConstraints);
+            addTileToColumnIdentifier(columnIdentifierText[i], i, columnConstraints);
             for(int j = 0; j < numOfTiles; j++) {
-                //StackPane tile = new StackPane();
-                Label tile = new Label("Hallo");
-                chessBoard.add(tile, i, j);
+                addTileToChessboard(i, j);
             }
+            // Not to happy about those lines about columnconstraints here. TODO
+            chessBoard.getColumnConstraints().add(columnConstraints);
+            chessBoard.getRowConstraints().add(rowConstraints);
         }
+        columnConstraints.setPercentWidth(100);
+        rowIdentifier.getColumnConstraints().add(columnConstraints);
+        rowConstraints.setPercentHeight(100);
+        columnIdentifier.getRowConstraints().add(rowConstraints);
     }
 
-    private void createRowsIdentifier() {
-        ColumnConstraints column = new ColumnConstraints();
-        column.setPercentWidth(100);
-        rowIdentifier.getColumnConstraints().add(column);
-        RowConstraints row = new RowConstraints();
-        row.setPercentHeight(12.5);
-        for(int i = 0; i < numOfTiles; i++) {
-            rowIdentifier.getRowConstraints().add(row);
-            Label tile = new Label((numOfTiles - i) + "");
-            rowIdentifier.add(tile, 0, i);
-        }
+    /**
+     *
+     * @param text
+     * @param position
+     * @param rowConstraints
+     */
+    private void addTileToRowIdentifier(String text, int position, RowConstraints rowConstraints) {
+        Label tile = new Label(text);
+        tile.prefWidthProperty().bind(rowIdentifier.widthProperty().divide(numOfTiles));
+        tile.setAlignment(Pos.CENTER);
+        rowIdentifier.getRowConstraints().add(rowConstraints);
+        rowIdentifier.add(tile, 0, position);
     }
 
-    private void createColumnIdentifier() {
-        String[] columnText = {"A", "B", "C", "D", "E", "F", "G", "H"};
+    /**
+     *
+     * @param text
+     * @param position
+     * @param columnConstraints
+     */
+    private void addTileToColumnIdentifier(String text, int position, ColumnConstraints columnConstraints) {
+        Label tile = new Label(text);
+        tile.prefWidthProperty().bind(columnIdentifier.widthProperty().divide(numOfTiles));
+        tile.setAlignment(Pos.CENTER);
+        columnIdentifier.getColumnConstraints().add(columnConstraints);
+        columnIdentifier.add(tile, position, 0);
+    }
 
-        RowConstraints row = new RowConstraints();
-        row.setPercentHeight(100);
-        columnIdentifier.getRowConstraints().add(row);
-        ColumnConstraints column = new ColumnConstraints();
-        column.setPercentWidth(12.5);
-
-        for(int i = 0; i < numOfTiles; i++) {
-            columnIdentifier.getColumnConstraints().add(column);
-            Label tile = new Label(columnText[i]);
-            columnIdentifier.add(tile, i, 0);
-        }
+    /**
+     *
+     * @param rowPos
+     * @param colPos
+     */
+    private void addTileToChessboard(int rowPos, int colPos) {
+        StackPane tile = new StackPane();
+        chessBoard.add(tile, colPos, rowPos);
     }
 }
