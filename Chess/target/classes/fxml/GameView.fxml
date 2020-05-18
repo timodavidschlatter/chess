@@ -7,8 +7,8 @@
     <rowConstraints>
         <RowConstraints percentHeight="5.0" />
         <RowConstraints percentHeight="80.0" />
-        <RowConstraints percentHeight="15.0" />
-        <RowConstraints percentHeight="0.0" />
+        <RowConstraints percentHeight="10.0" />
+        <RowConstraints percentHeight="5.0" />
     </rowConstraints>
     <columnConstraints>
         <ColumnConstraints percentWidth="10" />
