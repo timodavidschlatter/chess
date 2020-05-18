@@ -2,9 +2,11 @@ package controller;
 
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class GameController {
 
@@ -18,6 +20,7 @@ public class GameController {
     private GridPane columnIdentifier;
     private final int numOfTiles = 8;
 
+
     @FXML
     private void initialize() {
         createGameView();
@@ -28,13 +31,17 @@ public class GameController {
      */
     private void createGameView() {
         String[] columnIdentifierText = {"A", "B", "C", "D", "E", "F", "G", "H"};
+        Color color = Color.BLACK;  //TODO - Coloring could be codewise improved
+
         setGridConstraints(0);
 
         for(int i = 0; i < numOfTiles; i++) {
             addTileToRowIdentifier((numOfTiles - i) + "", i);
             addTileToColumnIdentifier(columnIdentifierText[i], i);
+            color = color == Color.BLACK ? Color.WHITE : Color.BLACK;
             for(int j = 0; j < numOfTiles; j++) {
-                addTileToChessboard(i, j);
+                addTileToChessboard(i, j, color);
+                color = color == Color.BLACK ? Color.WHITE : Color.BLACK;
             }
             setGridConstraints(1);
         }
@@ -121,8 +128,9 @@ public class GameController {
      * @param rowPos
      * @param colPos
      */
-    private void addTileToChessboard(int rowPos, int colPos) {
+    private void addTileToChessboard(int rowPos, int colPos, Color color) {
         StackPane tile = new StackPane();
+        tile.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         chessBoard.add(tile, colPos, rowPos);
     }
 }
