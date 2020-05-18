@@ -38,12 +38,11 @@ public class GameController {
             }
             setGridConstraints(1);
         }
-
     }
 
     /**
      * Set all row- and column- constraints for the gridpanes (rowIdentifier, columnIdentifier, chessboard)
-     * @param i
+     * @param i - 0: set row- /column- identifier to 100% width/height, 1: set tiles width / height according to number of tiles
      */
     private void setGridConstraints(int i) { //TODO - Switch cases are not object oriented programming (As my old java teacher told us)
         int percent = 100;
