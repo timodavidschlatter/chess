@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -15,7 +16,6 @@ public class GameController {
 
     @FXML
     private GridPane columnIdentifier;
-
     private final int numOfTiles = 8;
 
     @FXML
@@ -89,9 +89,7 @@ public class GameController {
      * @param position
      */
     private void addTileToRowIdentifier(String text, int position) {
-        Label tile = new Label(text);
-        tile.prefWidthProperty().bind(rowIdentifier.widthProperty());
-        tile.setAlignment(Pos.CENTER);
+        Label tile = createLabel(text, rowIdentifier.widthProperty());
         rowIdentifier.add(tile, 0, position);
     }
 
@@ -101,10 +99,21 @@ public class GameController {
      * @param position
      */
     private void addTileToColumnIdentifier(String text, int position) {
-        Label tile = new Label(text);
-        tile.prefWidthProperty().bind(columnIdentifier.widthProperty().divide(numOfTiles));
-        tile.setAlignment(Pos.CENTER);
+        Label tile = createLabel(text, columnIdentifier.widthProperty().divide(numOfTiles));
         columnIdentifier.add(tile, position, 0);
+    }
+
+    /**
+     * Create Label and set prefered width property
+     * @param text
+     * @param observableValue
+     * @return Label - with centered text
+     */
+    private Label createLabel(String text, ObservableValue observableValue) {
+        Label label = new Label(text);
+        label.prefWidthProperty().bind(observableValue);
+        label.setAlignment(Pos.CENTER);
+        return label;
     }
 
     /**
