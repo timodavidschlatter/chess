@@ -19,10 +19,10 @@
     <children>
         <Label text="%gameView.pl2" GridPane.columnIndex="2" />
         <VBox styleClass="bench" GridPane.rowIndex="1" />
-        <GridPane fx:id="rowIdentifier" styleClass="gridPane" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <GridPane fx:id="rowIdentifier" id="rowIdentifier" styleClass="gridPane" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <GridPane fx:id="chessBoard" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <VBox styleClass="bench" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <GridPane fx:id="columnIdentifier" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <GridPane fx:id="columnIdentifier" id="columnIdentifier" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="2" />
         <Label text="%gameView.pl1" GridPane.columnIndex="2" GridPane.rowIndex="3" />
     </children>
 </GridPane>
