@@ -24,9 +24,7 @@ public class GameController {
         createGameView();
     }
 
-    /**
-     *
-     */
+
     private void createGameView() {
         String[] columnIdentifierText = {"A", "B", "C", "D", "E", "F", "G", "H"};
         ColumnConstraints columnConstraints = new ColumnConstraints();
@@ -51,26 +49,14 @@ public class GameController {
         columnIdentifier.getRowConstraints().add(rowConstraints);
     }
 
-    /**
-     *
-     * @param text
-     * @param position
-     * @param rowConstraints
-     */
     private void addTileToRowIdentifier(String text, int position, RowConstraints rowConstraints) {
         Label tile = new Label(text);
-        tile.prefWidthProperty().bind(rowIdentifier.widthProperty().divide(numOfTiles));
+        tile.prefWidthProperty().bind(rowIdentifier.widthProperty());
         tile.setAlignment(Pos.CENTER);
         rowIdentifier.getRowConstraints().add(rowConstraints);
         rowIdentifier.add(tile, 0, position);
     }
 
-    /**
-     *
-     * @param text
-     * @param position
-     * @param columnConstraints
-     */
     private void addTileToColumnIdentifier(String text, int position, ColumnConstraints columnConstraints) {
         Label tile = new Label(text);
         tile.prefWidthProperty().bind(columnIdentifier.widthProperty().divide(numOfTiles));
@@ -79,11 +65,6 @@ public class GameController {
         columnIdentifier.add(tile, position, 0);
     }
 
-    /**
-     *
-     * @param rowPos
-     * @param colPos
-     */
     private void addTileToChessboard(int rowPos, int colPos) {
         StackPane tile = new StackPane();
         chessBoard.add(tile, colPos, rowPos);
