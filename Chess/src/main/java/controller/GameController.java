@@ -131,6 +131,7 @@ public class GameController {
     private void addTileToChessboard(int rowPos, int colPos, Color color) {
         StackPane tile = new StackPane();
         tile.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
+        //tile.getChildren().add(new Label("\u2655"));
         chessBoard.add(tile, colPos, rowPos);
     }
 }
