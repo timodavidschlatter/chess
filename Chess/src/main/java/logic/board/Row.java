@@ -44,4 +44,11 @@ public class Row {
         }
     }
 
+    /**
+     * Returns a tile array
+     * @return
+     */
+    public Tile[] getTiles() {
+        return tiles;
+    }
 }

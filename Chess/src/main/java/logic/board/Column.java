@@ -29,7 +29,7 @@ public class Column {
         this.numbering = numbering;
         this.numOfTiles = numOfTiles;
         this.tiles = new Tile[numOfTiles];
-        addTiles(tiles);
+        addTiles(tiles); //Necessary?
     }
 
     /**
@@ -37,8 +37,6 @@ public class Column {
      * @param tiles
      */
     private void addTiles(Tile[] tiles) {
-        for(int i = 0; i < tiles.length; i++) {
-            this.tiles[i] = tiles[i];
-        }
+        this.tiles = tiles;
     }
 }
