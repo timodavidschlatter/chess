@@ -1,5 +1,6 @@
 package start;
 
+import controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,10 +18,12 @@ public class Start extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(Start.class.getResource("/fxml/GameView.fxml"), ResourceBundle.getBundle("Bundle", new Locale("en")));
+        /*FXMLLoader loader = new FXMLLoader(Start.class.getResource("/fxml/GameView.fxml"), ResourceBundle.getBundle("Bundle", new Locale("en")));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
         stage.setTitle("Chess");
-        stage.show();
+        stage.show();*/
+        Controller controller = new Controller(stage);
+        controller.showStartView();
     }
 }
