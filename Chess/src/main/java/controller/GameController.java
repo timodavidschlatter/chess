@@ -18,14 +18,17 @@ public class GameController {
 
     @FXML
     private GridPane columnIdentifier;
+    private ControlStation controlStation;
     private final int numOfTiles = 8;
-
 
     @FXML
     private void initialize() {
         createGameView();
     }
 
+    public GameController(ControlStation controlStation) {
+        this.controlStation = controlStation;
+    }
     /**
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      */

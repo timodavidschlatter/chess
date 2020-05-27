@@ -4,7 +4,7 @@
 
 <?import javafx.scene.control.Label?>
 <BorderPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controlStation="controlStation.GameController">
     <center>
         <VBox id="container" alignment="CENTER">
             <HBox>

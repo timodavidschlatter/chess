@@ -1,13 +1,8 @@
 package start;
 
-import controller.Controller;
+import controller.ControlStation;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class Start extends Application {
 
@@ -18,12 +13,7 @@ public class Start extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*FXMLLoader loader = new FXMLLoader(Start.class.getResource("/fxml/GameView.fxml"), ResourceBundle.getBundle("Bundle", new Locale("en")));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
-        stage.setTitle("Chess");
-        stage.show();*/
-        Controller controller = new Controller(stage);
-        controller.showStartView();
+        ControlStation controlStation = new ControlStation(stage);
+        controlStation.showStartView();
     }
 }

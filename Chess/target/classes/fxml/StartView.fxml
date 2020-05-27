@@ -10,10 +10,9 @@
     <center>
         <VBox>
             <Label styleClass="title" text="%startView.title"/>
-            <Button text="%startView.start"/>
+            <Button text="%startView.start" onAction="#startGame"/>
             <Button text="%startView.instructions"/>
             <Button text="%startView.exit"/>
-            <!--<Pit text="Fuck You"></Pit>-->
         </VBox>
     </center>
 </BorderPane>

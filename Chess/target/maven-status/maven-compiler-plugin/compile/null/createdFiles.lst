@@ -5,6 +5,7 @@ controller/StartController.class
 logic/board/Row.class
 logic/figures/Bishop.class
 logic/board/Game.class
+controller/ControlStation.class
 module-info.class
 logic/figures/Pawn.class
 logic/board/Board.class
@@ -14,4 +15,3 @@ start/Start.class
 logic/figures/Rook.class
 logic/figures/Knight.class
 logic/figures/Figure.class
-controller/Controller.class

@@ -2,6 +2,7 @@
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/board/Row.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/controller/GameController.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/figures/Bishop.java
+/Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/controller/ControlStation.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/figures/Figure.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/board/Tile.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/figures/Pawn.java
@@ -13,5 +14,4 @@
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/board/Game.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/controller/StartController.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/logic/figures/Knight.java
-/Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/controller/Controller.java
 /Users/schlatter/Documents/01_private/05_programming/chess/Chess/src/main/java/module-info.java

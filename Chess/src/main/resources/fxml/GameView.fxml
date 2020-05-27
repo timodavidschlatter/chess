@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+<GridPane id="root" stylesheets="@/css/game.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" >
     <rowConstraints>
         <RowConstraints percentHeight="5.0" />
         <RowConstraints percentHeight="80.0" />
