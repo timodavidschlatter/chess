@@ -15,3 +15,4 @@ start/Start.class
 logic/figures/Rook.class
 logic/figures/Knight.class
 logic/figures/Figure.class
+controller/Controller.class

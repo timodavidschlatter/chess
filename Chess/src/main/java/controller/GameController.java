@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class GameController {
+public class GameController extends Controller {
 
     @FXML
     private GridPane rowIdentifier;
@@ -18,7 +18,6 @@ public class GameController {
 
     @FXML
     private GridPane columnIdentifier;
-    private ControlStation controlStation;
     private final int numOfTiles = 8;
 
     @FXML
@@ -27,7 +26,7 @@ public class GameController {
     }
 
     public GameController(ControlStation controlStation) {
-        this.controlStation = controlStation;
+        super(controlStation);
     }
     /**
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)

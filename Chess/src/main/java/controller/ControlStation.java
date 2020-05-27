@@ -10,11 +10,11 @@
 
 package controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -27,32 +27,32 @@ public class ControlStation {
     private Stage stage;
     private Locale locale;
     private final String baseName;
-
+    private final String title;
 
     public ControlStation(Stage stage) {
         this.stage = stage;
         this.baseName = "Bundle";
         this.locale = new Locale("en");
+        this.title = "Chess";
     }
 
     public void showStartView() {
-        FXMLLoader loader = new FXMLLoader(ControlStation.class.getResource("/fxml/StartView.fxml"), ResourceBundle.getBundle(baseName, locale));
-        try {
-            loader.setController(new StartController(this));
-            initAndShow(loader.load(), "Chess Game");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("FXML-Resource not found. ");
-        }
+        showView("/fxml/StartView.fxml", new StartController(this));
     }
 
     public void showGameView() {
-        FXMLLoader loader = new FXMLLoader(ControlStation.class.getResource("/fxml/GameView.fxml"), ResourceBundle.getBundle(baseName, locale));
+        showView("/fxml/GameView.fxml", new GameController(this));
+    }
+
+    private void showView(String filePath, Controller controller) {
+        FXMLLoader loader = new FXMLLoader(ControlStation.class.getResource(filePath), ResourceBundle.getBundle(baseName, locale));
         try {
-            loader.setController(new GameController(this));
-            initAndShow(loader.load(), "Chess Game");
+            loader.setController(controller);
+            initAndShow(loader.load(), title);
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("FXML-Resource not found. ");
+            Platform.exit();
         }
     }
 
