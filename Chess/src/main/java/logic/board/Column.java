@@ -17,26 +17,33 @@ public class Column {
 
     private String numbering;
     private Tile[] tiles;
-    private final int numOfTiles;
 
     /**
-     * Initalizes column with numbering information, number of tiles and all tiles to add
+     * Initalizes column with numbering information and all tiles to add
      * @param numbering
-     * @param numOfTiles
      * @param tiles
      */
-    public Column(String numbering, int numOfTiles, Tile[] tiles) {
+    public Column(String numbering, int numOfTiles) {
         this.numbering = numbering;
-        this.numOfTiles = numOfTiles;
         this.tiles = new Tile[numOfTiles];
-        addTiles(tiles); //Necessary?
+        //this.tiles = tiles;
+        //addNumberingToTiles();
     }
 
     /**
-     * Adds the tiles to the column
-     * @param tiles
+     * Adds the numbering of the columns to the tiles
      */
-    private void addTiles(Tile[] tiles) {
-        this.tiles = tiles;
+    public void addNumberingToTiles() {
+        for(Tile tile : tiles) {
+            tile.setPosition(numbering + tile.getPosition());
+        }
+    }
+
+    /**
+     * Adds tile to column
+     * @param i
+     */
+    public void addTileToColumn(int i, Tile tile) {
+        tiles[i] = tile;
     }
 }

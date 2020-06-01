@@ -34,31 +34,19 @@ public class Board {
     /**
      * Creates multiple rows and columns and adds them to the board
      */
-    private void createBoard() {
+    private void createBoard() { //TODO Maybe better solution than this? Performancewise. Not to amused about this
         for(int i = 0; i < numOfTiles; i++) {
-            rows[i] = createRow(numOfTiles - i + "");
-            columns[i] = defineColumn(columnNumbering[i], rows[i].getTiles());
+            rows[i] = new Row(numOfTiles - i + "", numOfTiles);
+        }
+        for(int i = 0; i < numOfTiles; i++) {
+            columns[i] = new Column(columnNumbering[i], numOfTiles);
+            for(int j = 0; j < numOfTiles; j++) {
+                columns[i].addTileToColumn(j, rows[j].getTiles()[i]);
+            }
+            columns[i].addNumberingToTiles();
         }
     }
 
-    /**
-     * Creates a row
-     * @param numbering
-     * @return Row
-     */
-    private Row createRow(String numbering) {
-        return new Row(numbering, numOfTiles);
-    }
-
-    /**
-     * Creates a column
-     * @param numbering
-     * @param tiles
-     * @return Column
-     */
-    private Column defineColumn(String numbering, Tile[] tiles) {
-        return new Column(numbering, numOfTiles, tiles);
-    }
 
     /**
      * returns rows

@@ -52,11 +52,16 @@ public class GameController extends Controller {
             }
             setGridConstraints(1);
         }*/
-        Game game = new Game();
+        Game game = new Game(); //TODO
         Board board = game.getBoard();
         this.numOfTiles = board.getNumOfTiles();
 
+        setGridConstraints(0);
+
         for(int i = 0; i < numOfTiles; i++) {
+            System.out.println(board.getRows()[0].getTiles()[i].getPosition());
+            addTileToRowIdentifier(board.getRows()[i].getTiles()[0].getPosition().substring(1), i);
+            addTileToColumnIdentifier(board.getRows()[0].getTiles()[i].getPosition().substring(0,1), i);
             chessBoard.addRow(i, board.getRows()[i].getTiles());
             setGridConstraints(1);
         }
@@ -121,8 +126,8 @@ public class GameController extends Controller {
      * @param position
      */
     private void addTileToColumnIdentifier(String text, int position) {
-        //Label tile = createLabel(text, columnIdentifier.widthProperty().divide(numOfTiles));
-        //columnIdentifier.add(tile, position, 0);
+        Label tile = createLabel(text, columnIdentifier.widthProperty().divide(numOfTiles));
+        columnIdentifier.add(tile, position, 0);
     }
 
     /**

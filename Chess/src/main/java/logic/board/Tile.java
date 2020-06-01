@@ -31,4 +31,19 @@ public class Tile extends StackPane {
         this.position = position;
     }
 
+    /**
+     * Sets position
+     * @param position
+     */
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    /**
+     * returns position
+     * @return
+     */
+    public String getPosition() {
+        return position;
+    }
 }
