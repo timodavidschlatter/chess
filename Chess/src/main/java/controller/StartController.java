@@ -25,6 +25,9 @@ public class StartController extends Controller {
         super(controlStation);
     }
 
+    /**
+     * Shows game view
+     */
     @FXML
     public void startGame() {
         controlStation.showGameView();

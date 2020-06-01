@@ -59,4 +59,28 @@ public class Board {
     private Column defineColumn(String numbering, Tile[] tiles) {
         return new Column(numbering, numOfTiles, tiles);
     }
+
+    /**
+     * returns rows
+     * @return
+     */
+    public Row[] getRows() {
+        return rows;
+    }
+
+    /**
+     * returns columns
+     * @return
+     */
+    public Column[] getColumns() {
+        return columns;
+    }
+
+    /**
+     * returns number of tiles (per row/column)
+     * @return
+     */
+    public int getNumOfTiles() {
+        return numOfTiles;
+    }
 }

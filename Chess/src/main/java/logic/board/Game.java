@@ -23,4 +23,12 @@ public class Game {
     public Game() {
         this.board = new Board();
     }
+
+    /**
+     * returns board
+     * @return
+     */
+    public Board getBoard() {
+        return board;
+    }
 }

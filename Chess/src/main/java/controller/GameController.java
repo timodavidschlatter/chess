@@ -7,6 +7,10 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import logic.board.Board;
+import logic.board.Game;
+import logic.board.Row;
+import logic.board.Tile;
 
 public class GameController extends Controller {
 
@@ -18,7 +22,6 @@ public class GameController extends Controller {
 
     @FXML
     private GridPane columnIdentifier;
-    private final int numOfTiles = 8;
 
     @FXML
     private void initialize() {
@@ -32,7 +35,7 @@ public class GameController extends Controller {
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      */
     private void createGameView() {
-        String[] columnIdentifierText = {"A", "B", "C", "D", "E", "F", "G", "H"};
+        /*String[] columnIdentifierText = {"A", "B", "C", "D", "E", "F", "G", "H"};
         Color color = Color.BLACK;  //TODO - Coloring could be codewise improved
 
         setGridConstraints(0);
@@ -46,6 +49,13 @@ public class GameController extends Controller {
                 color = color == Color.BLACK ? Color.WHITE : Color.BLACK;
             }
             setGridConstraints(1);
+        }*/
+        Game game = new Game();
+        Board board = game.getBoard();
+        int numOfTiles = board.getNumOfTiles();
+
+        for(int i = 0; i < numOfTiles; i++) {
+            chessBoard.addRow(i, board.getRows()[i].getTiles());
         }
     }
 
@@ -61,7 +71,7 @@ public class GameController extends Controller {
                 columnIdentifier.getRowConstraints().add(createRowConstraints(percent));
                 break;
             case 1:
-                percent /= numOfTiles;
+                //percent /= numOfTiles;
                 rowIdentifier.getRowConstraints().add(createRowConstraints(percent));
                 columnIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
                 chessBoard.getColumnConstraints().add(createColumnConstraints(percent));
@@ -108,8 +118,8 @@ public class GameController extends Controller {
      * @param position
      */
     private void addTileToColumnIdentifier(String text, int position) {
-        Label tile = createLabel(text, columnIdentifier.widthProperty().divide(numOfTiles));
-        columnIdentifier.add(tile, position, 0);
+        //Label tile = createLabel(text, columnIdentifier.widthProperty().divide(numOfTiles));
+        //columnIdentifier.add(tile, position, 0);
     }
 
     /**

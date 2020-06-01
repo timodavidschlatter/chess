@@ -29,6 +29,10 @@ public class ControlStation {
     private final String baseName;
     private final String title;
 
+    /**
+     * Initializes controlStation with stage info, language bundle name and locale, and title
+     * @param stage
+     */
     public ControlStation(Stage stage) {
         this.stage = stage;
         this.baseName = "Bundle";
@@ -36,14 +40,25 @@ public class ControlStation {
         this.title = "Chess";
     }
 
+    /**
+     * Shows start view
+     */
     public void showStartView() {
         showView("/fxml/StartView.fxml", new StartController(this));
     }
 
+    /**
+     * Shows game view
+     */
     public void showGameView() {
         showView("/fxml/GameView.fxml", new GameController(this));
     }
 
+    /**
+     * Shows given view with path to file and given parameter controller
+     * @param filePath
+     * @param controller
+     */
     private void showView(String filePath, Controller controller) {
         FXMLLoader loader = new FXMLLoader(ControlStation.class.getResource(filePath), ResourceBundle.getBundle(baseName, locale));
         try {
@@ -56,6 +71,11 @@ public class ControlStation {
         }
     }
 
+    /**
+     * Initializes and shows stage with scene on it
+     * @param parent
+     * @param title
+     */
     private void initAndShow(Parent parent, String title) {
         Scene scene = new Scene(parent);
         stage.setScene(scene);
