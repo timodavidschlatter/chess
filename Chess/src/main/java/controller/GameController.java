@@ -28,6 +28,8 @@ public class GameController extends Controller {
         createGameView();
     }
 
+    private int numOfTiles;
+
     public GameController(ControlStation controlStation) {
         super(controlStation);
     }
@@ -52,10 +54,11 @@ public class GameController extends Controller {
         }*/
         Game game = new Game();
         Board board = game.getBoard();
-        int numOfTiles = board.getNumOfTiles();
+        this.numOfTiles = board.getNumOfTiles();
 
         for(int i = 0; i < numOfTiles; i++) {
             chessBoard.addRow(i, board.getRows()[i].getTiles());
+            setGridConstraints(1);
         }
     }
 
@@ -71,7 +74,7 @@ public class GameController extends Controller {
                 columnIdentifier.getRowConstraints().add(createRowConstraints(percent));
                 break;
             case 1:
-                //percent /= numOfTiles;
+                percent /= numOfTiles;
                 rowIdentifier.getRowConstraints().add(createRowConstraints(percent));
                 columnIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
                 chessBoard.getColumnConstraints().add(createColumnConstraints(percent));
