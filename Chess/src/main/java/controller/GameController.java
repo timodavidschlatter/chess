@@ -33,25 +33,11 @@ public class GameController extends Controller {
     public GameController(ControlStation controlStation) {
         super(controlStation);
     }
+
     /**
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      */
     private void createGameView() {
-        /*String[] columnIdentifierText = {"A", "B", "C", "D", "E", "F", "G", "H"};
-        Color color = Color.BLACK;  //TODO - Coloring could be codewise improved
-
-        setGridConstraints(0);
-
-        for(int i = 0; i < numOfTiles; i++) {
-            addTileToRowIdentifier((numOfTiles - i) + "", i);
-            addTileToColumnIdentifier(columnIdentifierText[i], i);
-            color = color == Color.BLACK ? Color.WHITE : Color.BLACK;
-            for(int j = 0; j < numOfTiles; j++) {
-                addTileToChessboard(i, j, color);
-                color = color == Color.BLACK ? Color.WHITE : Color.BLACK;
-            }
-            setGridConstraints(1);
-        }*/
         Game game = new Game(); //TODO
         Board board = game.getBoard();
         this.numOfTiles = board.getNumOfTiles();
@@ -59,7 +45,6 @@ public class GameController extends Controller {
         setGridConstraints(0);
 
         for(int i = 0; i < numOfTiles; i++) {
-            System.out.println(board.getRows()[0].getTiles()[i].getPosition());
             addTileToRowIdentifier(board.getRows()[i].getTiles()[0].getPosition().substring(1), i);
             addTileToColumnIdentifier(board.getRows()[0].getTiles()[i].getPosition().substring(0,1), i);
             chessBoard.addRow(i, board.getRows()[i].getTiles());

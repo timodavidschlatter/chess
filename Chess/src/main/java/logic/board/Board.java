@@ -36,7 +36,7 @@ public class Board {
      */
     private void createBoard() { //TODO Maybe better solution than this? Performancewise. Not to amused about this
         for(int i = 0; i < numOfTiles; i++) {
-            rows[i] = new Row(numOfTiles - i + "", numOfTiles);
+            rows[i] = new Row(numOfTiles - i + "", numOfTiles, i);
         }
         for(int i = 0; i < numOfTiles; i++) {
             columns[i] = new Column(columnNumbering[i], numOfTiles);
