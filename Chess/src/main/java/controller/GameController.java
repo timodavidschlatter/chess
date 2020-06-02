@@ -28,19 +28,22 @@ public class GameController extends Controller {
         createGameView();
     }
 
+    private Game game;
+    private Board board;
     private int numOfTiles;
 
-    public GameController(ControlStation controlStation) {
+    public GameController(ControlStation controlStation, Game game) {
         super(controlStation);
+        this.game = new Game(); //TODO just for developing like this
+        //this.game = game;
+        this.board = this.game.getBoard();
+        this.numOfTiles = board.getNumOfTiles();
     }
 
     /**
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      */
     private void createGameView() {
-        Game game = new Game(); //TODO
-        Board board = game.getBoard();
-        this.numOfTiles = board.getNumOfTiles();
 
         setGridConstraints(0);
 

@@ -15,6 +15,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logic.board.Game;
+
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -26,6 +28,7 @@ public class ControlStation {
 
     private Stage stage;
     private Locale locale;
+    private Game game;
     private final String baseName;
     private final String title;
 
@@ -51,7 +54,7 @@ public class ControlStation {
      * Shows game view
      */
     public void showGameView() {
-        showView("/fxml/GameView.fxml", new GameController(this));
+        showView("/fxml/GameView.fxml", new GameController(this, game));
     }
 
     /**
@@ -83,5 +86,12 @@ public class ControlStation {
         stage.show();
     }
 
+    /**
+     * Sets the game after starting it (in StartController)
+     * @param game
+     */
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
 }
