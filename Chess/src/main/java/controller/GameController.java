@@ -44,14 +44,16 @@ public class GameController extends Controller {
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      */
     private void createGameView() {
+        int percent = 100;
+        rowIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
+        columnIdentifier.getRowConstraints().add(createRowConstraints(percent));
 
-        setGridConstraints(0);
 
         for(int i = 0; i < numOfTiles; i++) {
             addTileToRowIdentifier(board.getRows()[i].getTiles()[0].getPosition().substring(1), i);
             addTileToColumnIdentifier(board.getRows()[0].getTiles()[i].getPosition().substring(0,1), i);
             chessBoard.addRow(i, board.getRows()[i].getTiles());
-            setGridConstraints(1);
+            setGridConstraints(percent);
         }
     }
 
@@ -59,21 +61,12 @@ public class GameController extends Controller {
      * Set all row- and column- constraints for the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      * @param i - 0: set row- /column- identifier to 100% width/height, 1: set tiles width / height according to number of tiles
      */
-    private void setGridConstraints(int i) { //TODO - Switch cases are not object oriented programming (As my old java teacher told us)
-        int percent = 100;
-        switch(i) {
-            case 0:
-                rowIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
-                columnIdentifier.getRowConstraints().add(createRowConstraints(percent));
-                break;
-            case 1:
-                percent /= numOfTiles;
-                rowIdentifier.getRowConstraints().add(createRowConstraints(percent));
-                columnIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
-                chessBoard.getColumnConstraints().add(createColumnConstraints(percent));
-                chessBoard.getRowConstraints().add(createRowConstraints(percent));
-                break;
-        }
+    private void setGridConstraints(int percent) {
+        percent /= numOfTiles;
+        rowIdentifier.getRowConstraints().add(createRowConstraints(percent));
+        columnIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
+        chessBoard.getColumnConstraints().add(createColumnConstraints(percent));
+        chessBoard.getRowConstraints().add(createRowConstraints(percent));
     }
 
     /**
