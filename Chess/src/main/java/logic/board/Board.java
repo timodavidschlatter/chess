@@ -47,6 +47,10 @@ public class Board {
         }
     }
 
+    private void addFigures() {
+
+    }
+
 
     /**
      * returns rows

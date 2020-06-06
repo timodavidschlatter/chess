@@ -4,8 +4,13 @@ import javafx.scene.paint.Color;
 
 public class Rook extends Figure {
 
-    public Rook(String unicode, Color color, String position, String figureName) {
-        super(unicode, color, position, figureName);
+    private final static String UNICODE_BLACK = "\u265C";
+    private final static String UNICODE_WHITE = "\u2656";
+
+    public Rook(Color color, String position) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, "Rook");
+        //super.setLabelText(unicode_black, unicode_white);
+
     }
 
     //TODO

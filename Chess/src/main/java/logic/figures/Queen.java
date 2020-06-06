@@ -4,8 +4,13 @@ import javafx.scene.paint.Color;
 
 public class Queen extends Figure {
 
-    public Queen(String unicode, Color color, String position, String figureName) {
-        super(unicode, color, position, figureName);
+    private final static String UNICODE_BLACK = "\u265B";
+    private final static String UNICODE_WHITE = "\u2655";
+
+    public Queen(Color color, String position) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, "Queen");
+        //super.setLabelText(unicode_black, unicode_white);
+
     }
 
     //TODO

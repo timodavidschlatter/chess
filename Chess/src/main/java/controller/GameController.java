@@ -28,9 +28,9 @@ public class GameController extends Controller {
         createGameView();
     }
 
-    private Game game;
-    private Board board;
-    private int numOfTiles;
+    private final Game game;
+    private final Board board;
+    private final int numOfTiles;
 
     public GameController(ControlStation controlStation, Game game) {
         super(controlStation);
