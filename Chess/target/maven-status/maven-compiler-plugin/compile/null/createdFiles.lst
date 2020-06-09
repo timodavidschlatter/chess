@@ -1,11 +1,12 @@
 logic/figures/King.class
 logic/board/Column.class
-logic/board/Tile.class
 controller/StartController.class
+logic/board/Tile.class
 logic/board/Row.class
 logic/figures/Bishop.class
 logic/board/Game.class
 controller/ControlStation.class
+start/Playground.class
 module-info.class
 logic/figures/Pawn.class
 logic/board/Board.class
@@ -14,5 +15,5 @@ controller/GameController.class
 start/Start.class
 logic/figures/Rook.class
 logic/figures/Knight.class
-logic/figures/Figure.class
 controller/Controller.class
+logic/figures/Figure.class

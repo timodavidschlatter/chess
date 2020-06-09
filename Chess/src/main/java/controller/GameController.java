@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import logic.board.Board;
 import logic.board.Game;
 import logic.board.Row;
@@ -52,14 +53,26 @@ public class GameController extends Controller {
         for(int i = 0; i < numOfTiles; i++) {
             addTileToRowIdentifier(board.getRows()[i].getTiles()[0].getPosition().substring(1), i);
             addTileToColumnIdentifier(board.getRows()[0].getTiles()[i].getPosition().substring(0,1), i);
-            chessBoard.addRow(i, board.getRows()[i].getTiles());
+            for(int j = 0; j < numOfTiles; j++) {
+                //Adding Changelistener to the tiles and resize figures according to it - TODO could be done better I think
+                Tile t = board.getRows()[i].getTiles()[j];
+                if(t.getChildren().toArray().length > 0) {
+                    Label l = (Label) t.getChildren().get(0);
+                    t.widthProperty().addListener((o, oldVal, newVal) -> {
+                        l.setFont(Font.font(t.getWidth() / 4));
+                        t.getChildren().remove(0);
+                        t.getChildren().add(l);
+                    });
+                }
+                chessBoard.add(t, j, i);
+            }
             setGridConstraints(percent);
         }
     }
 
     /**
      * Set all row- and column- constraints for the gridpanes (rowIdentifier, columnIdentifier, chessboard)
-     * @param i - 0: set row- /column- identifier to 100% width/height, 1: set tiles width / height according to number of tiles
+     * @param percent - 0: set row- /column- identifier to 100% width/height, 1: set tiles width / height according to number of tiles
      */
     private void setGridConstraints(int percent) {
         percent /= numOfTiles;
@@ -132,7 +145,6 @@ public class GameController extends Controller {
     private void addTileToChessboard(int rowPos, int colPos, Color color) {
         StackPane tile = new StackPane();
         tile.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        //tile.getChildren().add(new Label("\u2655"));
         chessBoard.add(tile, colPos, rowPos);
     }
 }
