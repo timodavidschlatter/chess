@@ -59,7 +59,7 @@ public class GameController extends Controller {
                 if(t.getChildren().toArray().length > 0) {
                     Label l = (Label) t.getChildren().get(0);
                     t.widthProperty().addListener((o, oldVal, newVal) -> {
-                        l.setFont(Font.font(t.getWidth() / 4));
+                        l.setFont(Font.font(t.getWidth() / 2));
                         t.getChildren().remove(0);
                         t.getChildren().add(l);
                     });

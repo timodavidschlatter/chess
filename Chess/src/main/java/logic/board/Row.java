@@ -19,8 +19,8 @@ public class Row {
 
     private String numbering;
     private Tile[] tiles;
-    private final Color black;
-    private final Color white;
+    private final Color black = Color.GRAY;
+    private final Color white = Color.WHITE;
     private final int numOfTiles;
 
 
@@ -34,8 +34,6 @@ public class Row {
         this.numbering = numbering;
         this.numOfTiles = numOfTiles;
         this.tiles = new Tile[numOfTiles];
-        this.black = Color.BLACK;
-        this.white = Color.WHITE;
         createTiles(rowNumber);
     }
 
