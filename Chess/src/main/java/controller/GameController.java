@@ -25,6 +25,12 @@ public class GameController extends Controller {
     private GridPane columnIdentifier;
 
     @FXML
+    private GridPane blackBench;
+
+    @FXML
+    private GridPane whiteBench;
+
+    @FXML
     private void initialize() {
         createGameView();
     }
@@ -48,7 +54,7 @@ public class GameController extends Controller {
         int percent = 100;
         rowIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
         columnIdentifier.getRowConstraints().add(createRowConstraints(percent));
-
+        createBenches();
 
         for(int i = 0; i < numOfTiles; i++) {
             addTileToRowIdentifier(board.getRows()[i].getTiles()[0].getPosition().substring(1), i);
@@ -68,6 +74,29 @@ public class GameController extends Controller {
             }
             setGridConstraints(percent);
         }
+    }
+
+    /**
+     * Creates the benches for killed figures
+     */
+    private void createBenches() {
+        int numOfCol = 2;
+        int percentHeight = 100 / numOfTiles;
+        int percentWidth = 100 / numOfCol;
+
+        for(int i = 0; i < numOfCol; i++) {
+            for(int j = 0; j < numOfTiles; j++) {
+                blackBench.add(new Label(), i, j);
+                whiteBench.add(new Label(), i, j);
+                if(i == 1) {    //TODO
+                    blackBench.getRowConstraints().add(createRowConstraints(percentHeight));
+                    whiteBench.getRowConstraints().add(createRowConstraints(percentHeight));
+                }
+            }
+            blackBench.getColumnConstraints().add(createColumnConstraints(percentWidth));
+            whiteBench.getColumnConstraints().add(createColumnConstraints(percentWidth));
+        }
+
     }
 
     /**
