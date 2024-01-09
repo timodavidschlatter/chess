@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import logic.board.Board;
 import logic.board.Game;
-import logic.board.Row;
 import logic.board.Tile;
 
 public class GameController extends Controller {

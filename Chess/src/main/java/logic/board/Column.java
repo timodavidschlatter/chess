@@ -21,7 +21,7 @@ public class Column {
     /**
      * Initalizes column with numbering information and all tiles to add
      * @param numbering
-     * @param tiles
+     * @param numOfTiles
      */
     public Column(String numbering, int numOfTiles) {
         this.numbering = numbering;

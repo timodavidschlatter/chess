@@ -1,7 +1,9 @@
 package logic.figures;
 
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import logic.board.Game;
 
 public abstract class Figure extends Label {
 
@@ -14,9 +16,16 @@ public abstract class Figure extends Label {
         this.color = color;
         this.position = position;
         this.figureName = figureName;
+
+        this.setOnMouseClicked(this::handleFigureClick); // Add event handler for mouse click
     }
 
     protected abstract void move();
+
+    protected void handleFigureClick(MouseEvent event) {
+        Game.figureSelected(this); // Notify the Game class that this figure is selected
+    }
+
 
     /*protected void setLabelText(String unicode_black, String unicode_white) {
         String unicode = color.equals(Color.BLACK) ? unicode_black : unicode_white;
