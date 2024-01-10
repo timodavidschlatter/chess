@@ -10,6 +10,7 @@
 
 package logic.board;
 
+import javafx.scene.paint.Color;
 import logic.figures.Figure;
 
 /**
@@ -20,6 +21,7 @@ public class Game {
 
     private Board board;
     private static Figure selectedFigure;
+    private static Color turn = Color.WHITE;
 
     /**
      * Initalizes the game with its board
@@ -53,6 +55,39 @@ public class Game {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+
+    public static void moveFigure(Tile tile) {
+        /*
+         * 1 Das Tile wird nicht durch eines meiner eigenen Truppen blockiert
+         * 2 Die Tiles welche in meinem Bewegungsfeld sind, werden nicht durch meine eigenen Truppen blockiert
+         * 3 Wohin kann ich mich bewegen? move() Methode von der Figur ausführen.
+         * 4
+         */
+
+        // TODO
+        if (tile == null) {
+            System.out.println("Unexpected error");
+        }
+
+        // TODO add error handling
+        if (tile.getChildren().size() > 1) {
+            System.out.println("This should not be possible");
+        }
+
+        Figure figure = (Figure) tile.getChildren().get(0); // TODO without casting?
+
+        // The figure cannot move on a figur of the same color
+        if (figure != null) {
+            if (figure.getColor().equals(turn)) {
+                return;
+            }
+        }
+
+
+
+
     }
 
     /**

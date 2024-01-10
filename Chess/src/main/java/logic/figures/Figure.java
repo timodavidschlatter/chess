@@ -25,8 +25,15 @@ public abstract class Figure extends Label {
      * Handles a mouse click on the figure and executes the selectFigure() method of the Game object.
      * @param event The MouseEvent
      */
-    protected void handleMouseClick(MouseEvent event) {
+    private void handleMouseClick(MouseEvent event) {
         Game.selectFigure(this);
     }
 
+    /**
+     * Get color.
+     * @return Color of Figure
+     */
+    public Color getColor() {
+        return color;
+    }
 }

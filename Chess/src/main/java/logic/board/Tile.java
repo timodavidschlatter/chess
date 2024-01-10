@@ -11,6 +11,7 @@
 package logic.board;
 
 import javafx.geometry.Insets;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -33,6 +34,11 @@ public class Tile extends StackPane {
         this.color = color;
         this.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         this.position = position;
+        this.setOnMouseClicked(this::handleMouseClick); // Add event handler for mouse click
+    }
+
+    private void handleMouseClick(MouseEvent mouseEvent) {
+        Game.moveFigure(this);
     }
 
     /**
