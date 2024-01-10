@@ -14,6 +14,7 @@ import logic.figures.Figure;
 
 /**
  * Class displays in game scenario
+ * TODO Do I need instances of 'Game' or can it be static?
  */
 public class Game {
 
