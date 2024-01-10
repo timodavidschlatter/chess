@@ -19,7 +19,7 @@ public abstract class Figure extends Label {
         this.setOnMouseClicked(this::handleMouseClick); // Add event handler for mouse click
     }
 
-    protected abstract void move();
+    public abstract void move();
 
     /**
      * Handles a mouse click on the figure and executes the selectFigure() method of the Game object.
@@ -35,5 +35,9 @@ public abstract class Figure extends Label {
      */
     public Color getColor() {
         return color;
+    }
+
+    public String getPosition() {
+        return position;
     }
 }

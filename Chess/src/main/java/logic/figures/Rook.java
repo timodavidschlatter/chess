@@ -15,7 +15,7 @@ public class Rook extends Figure {
 
     //TODO
     @Override
-    protected void move() {
+    public void move() {
 
     }
 }

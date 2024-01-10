@@ -14,7 +14,7 @@ public class King extends Figure {
 
     //TODO
     @Override
-    protected void move() {
+    public void move() {
 
     }
 }

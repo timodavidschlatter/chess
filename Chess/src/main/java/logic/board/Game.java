@@ -76,18 +76,22 @@ public class Game {
             System.out.println("This should not be possible");
         }
 
-        Figure figure = (Figure) tile.getChildren().get(0); // TODO without casting?
-
         // The figure cannot move on a figur of the same color
-        if (figure != null) {
-            if (figure.getColor().equals(turn)) {
-                return;
+        if (tile.getChildren().size() > 0) {
+            Figure figure = (Figure) tile.getChildren().get(0); // TODO without casting?
+
+            if (figure != null) {
+                if (figure.getColor().equals(turn)) {
+                    return;
+                }
             }
         }
 
 
-
-
+        // TODO
+        selectedFigure.move();
+        System.out.println(selectedFigure.getPosition());
+        System.out.println(tile.getPosition());
     }
 
     /**
