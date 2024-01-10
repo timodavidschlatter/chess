@@ -28,13 +28,31 @@ public class Game {
         this.board = new Board();
     }
 
-    public static void figureSelected(Figure figure) {
-        if (selectedFigure != null) {
+    /**
+     * This checks if the clicked figure can be selected and adds styling to it.
+     * @param figure The figure which was clicked by the player.
+     */
+    public static void selectFigure(Figure figure) {
+        try {
+
+            // TODO Does this make sense?
+            if (figure == null) {
+                throw new NullPointerException();
+            }
+
             // Deselect the previously selected figure if any
-            selectedFigure.setStyle(""); // Remove any styling you might have applied
+            if (selectedFigure != null) {
+                selectedFigure.setStyle(""); // Remove any styling you might have applied
+            }
+
+            selectedFigure = figure;
+            selectedFigure.setStyle("-fx-background-color: lightblue;");
+        } catch (NullPointerException exception) {
+            System.err.println("Unexpected error. A figure should not be null within this method");
+            exception.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        selectedFigure = figure;
-        selectedFigure.setStyle("-fx-background-color: lightblue;");
     }
 
     /**

@@ -16,19 +16,17 @@ public abstract class Figure extends Label {
         this.color = color;
         this.position = position;
         this.figureName = figureName;
-
-        this.setOnMouseClicked(this::handleFigureClick); // Add event handler for mouse click
+        this.setOnMouseClicked(this::handleMouseClick); // Add event handler for mouse click
     }
 
     protected abstract void move();
 
-    protected void handleFigureClick(MouseEvent event) {
-        Game.figureSelected(this); // Notify the Game class that this figure is selected
+    /**
+     * Handles a mouse click on the figure and executes the selectFigure() method of the Game object.
+     * @param event The MouseEvent
+     */
+    protected void handleMouseClick(MouseEvent event) {
+        Game.selectFigure(this);
     }
 
-
-    /*protected void setLabelText(String unicode_black, String unicode_white) {
-        String unicode = color.equals(Color.BLACK) ? unicode_black : unicode_white;
-        super.setText(unicode);
-    }*/
 }
