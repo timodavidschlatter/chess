@@ -13,7 +13,6 @@ public class Knight extends Figure {
 
     public Knight(Color color, Position position) {
         super(UNICODE_BLACK, UNICODE_WHITE, color, position, "Knight");
-        //super.setLabelText(unicode_black, unicode_white);
     }
 
     //TODO

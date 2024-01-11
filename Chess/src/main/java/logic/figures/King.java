@@ -19,6 +19,18 @@ public class King extends Figure {
     //TODO
     @Override
     public List<Position> move() {
-        return new ArrayList<Position>();
+        Position position = this.getPosition();
+        List<Position> positions = new ArrayList<>();
+
+        positions.add(new Position(position.getRowNumber() + 1, position.getColumnNumber())); // moveUp
+        positions.add(new Position(position.getRowNumber() - 1, position.getColumnNumber())); // moveDown
+        positions.add(new Position(position.getRowNumber(), position.getColumnNumber() + 1)); // moveRight
+        positions.add(new Position(position.getRowNumber(), position.getColumnNumber() - 1)); // moveLeft
+        positions.add(new Position(position.getRowNumber() + 1, position.getColumnNumber() + 1)); // moveUpRight
+        positions.add(new Position(position.getRowNumber() + 1, position.getColumnNumber() - 1)); // moveUpLeft
+        positions.add(new Position(position.getRowNumber() - 1, position.getColumnNumber() + 1)); // moveDownRight
+        positions.add(new Position(position.getRowNumber() - 1, position.getColumnNumber() - 1)); // moveDownLeft
+
+        return positions;
     }
 }
