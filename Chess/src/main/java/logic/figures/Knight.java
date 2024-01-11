@@ -18,6 +18,18 @@ public class Knight extends Figure {
     //TODO
     @Override
     public List<Position> move() {
-        return new ArrayList<Position>();
+        Position position = this.getPosition();
+        List<Position> positions = new ArrayList<>();
+
+        positions.add(new Position(position.getRowNumber() + 2, position.getColumnNumber() + 1)); // TwoUpRight
+        positions.add(new Position(position.getRowNumber() + 2, position.getColumnNumber() - 1)); // TwoUpLeft
+        positions.add(new Position(position.getRowNumber() + 1, position.getColumnNumber() - 2)); // TwoLeftUp
+        positions.add(new Position(position.getRowNumber() - 1, position.getColumnNumber() - 2)); // TwoLeftDown
+        positions.add(new Position(position.getRowNumber() - 2, position.getColumnNumber() - 1)); // TwoDownLeft
+        positions.add(new Position(position.getRowNumber() - 2, position.getColumnNumber() + 1)); // TwoDownRight
+        positions.add(new Position(position.getRowNumber() - 1, position.getColumnNumber() + 2)); // TwoRightDown
+        positions.add(new Position(position.getRowNumber() + 1, position.getColumnNumber() + 2)); // TwoRightUp
+
+        return positions;
     }
 }
