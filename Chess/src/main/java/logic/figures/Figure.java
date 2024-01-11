@@ -4,14 +4,15 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import logic.board.Game;
+import logic.board.Position;
 
 public abstract class Figure extends Label {
 
     private Color color;
-    private String position;
+    private Position position;
     private String figureName;
 
-    public Figure(String unicode_black, String unicode_white, Color color, String position, String figureName) {
+    public Figure(String unicode_black, String unicode_white, Color color, Position position, String figureName) {
         super(color.equals(Color.BLACK) ? unicode_black : unicode_white);
         this.color = color;
         this.position = position;
@@ -37,7 +38,7 @@ public abstract class Figure extends Label {
         return color;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 }

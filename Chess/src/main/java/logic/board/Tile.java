@@ -24,13 +24,13 @@ import javafx.scene.paint.Color;
 public class Tile extends StackPane {
 
     private Color color;
-    private String position;
+    private Position position;
 
     /**
      * Initialize tile with its color and position information
      * @param position
      */
-    public Tile(Color color, String position) {
+    public Tile(Color color, Position position) {
         this.color = color;
         this.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         this.position = position;
@@ -45,7 +45,7 @@ public class Tile extends StackPane {
      * Sets position
      * @param position
      */
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
@@ -53,7 +53,7 @@ public class Tile extends StackPane {
      * returns position
      * @return
      */
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 }

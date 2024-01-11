@@ -17,7 +17,7 @@ import javafx.scene.paint.Color;
  */
 public class Row {
 
-    private String numbering;
+    private int numbering;
     private Tile[] tiles;
     private final Color black = Color.GRAY;
     private final Color white = Color.WHITE;
@@ -30,7 +30,7 @@ public class Row {
      * @param numOfTiles
      * @param rowNumber
      */
-    public Row(String numbering, int numOfTiles, int rowNumber) {
+    public Row(int numbering, int numOfTiles, int rowNumber) {
         this.numbering = numbering;
         this.numOfTiles = numOfTiles;
         this.tiles = new Tile[numOfTiles];
@@ -45,7 +45,7 @@ public class Row {
         Color color = rowNumber % 2 == 0 ? black : white;
         for(int i = 0; i < numOfTiles; i++) {
             color = color.equals(black) ? white : black;
-            Tile t = new Tile(color, numbering);
+            Tile t = new Tile(color, new Position(numbering, i));
             tiles[i] = t;
         }
     }

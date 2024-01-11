@@ -90,7 +90,7 @@ public class Game {
 
         // TODO
         selectedFigure.move();
-        System.out.println(selectedFigure.getPosition());
+        //System.out.println(selectedFigure.getPosition());
         System.out.println(tile.getPosition());
     }
 

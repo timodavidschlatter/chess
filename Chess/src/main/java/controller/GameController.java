@@ -56,8 +56,9 @@ public class GameController extends Controller {
         createBenches();
 
         for(int i = 0; i < numOfTiles; i++) {
-            addTileToRowIdentifier(board.getRows()[i].getTiles()[0].getPosition().substring(1), i);
-            addTileToColumnIdentifier(board.getRows()[0].getTiles()[i].getPosition().substring(0,1), i);
+            addTileToRowIdentifier(numOfTiles - 1 - i + "", i);
+            addTileToColumnIdentifier(i + "", i);
+
             for(int j = 0; j < numOfTiles; j++) {
                 //Adding Changelistener to the tiles and resize figures according to it - TODO could be done better I think
                 Tile t = board.getRows()[i].getTiles()[j];
