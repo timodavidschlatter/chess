@@ -19,6 +19,31 @@ public class Pawn extends Figure {
     //TODO
     @Override
     public List<Position> move() {
-        return new ArrayList<Position>();
+        /*
+         * 1. Von Startrow kann ich mit zwei bewegungen nach vorne gehen
+         * 2. Sonst nur mit einem nach  vorne
+         * 3. Spezialregel en passant
+         */
+        List<Position> positions = new ArrayList<>();
+        Position position = this.getPosition();
+        Color color = this.getColor();
+
+        if (color.equals(Color.WHITE)) {
+            positions.add(new Position(position.getRowNumber() + 1, position.getColumnNumber()));
+
+            // Pawns can move two fields from start position
+            if (position.getRowNumber() == 1) {
+                positions.add(new Position(position.getRowNumber() + 2, position.getColumnNumber()));
+            }
+        } else if (color.equals(Color.BLACK)) {
+            positions.add(new Position(position.getRowNumber() - 1, position.getColumnNumber()));
+
+            // Pawns can move two fields from start position
+            if (position.getRowNumber() == 6) {
+                positions.add(new Position(position.getRowNumber() - 2, position.getColumnNumber()));
+            }
+        }
+
+        return positions;
     }
 }
