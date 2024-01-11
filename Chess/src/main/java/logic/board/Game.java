@@ -13,13 +13,15 @@ package logic.board;
 import javafx.scene.paint.Color;
 import logic.figures.Figure;
 
+import java.util.List;
+
 /**
  * Class displays in game scenario
  * TODO Do I need instances of 'Game' or can it be static?
  */
 public class Game {
 
-    private Board board;
+    private static Board board;
     private static Figure selectedFigure;
     private static Color turn = Color.WHITE;
 
@@ -27,7 +29,7 @@ public class Game {
      * Initalizes the game with its board
      */
     public Game() {
-        this.board = new Board();
+        board = new Board();
     }
 
     /**
@@ -87,11 +89,20 @@ public class Game {
             }
         }
 
-
         // TODO
-        selectedFigure.move();
-        //System.out.println(selectedFigure.getPosition());
-        System.out.println(tile.getPosition());
+        List<Position> positions = selectedFigure.move();
+        //positions.forEach(System.out::println);
+
+        positions.forEach(position -> {
+            System.out.println(position);
+            if (tile.getPosition().equals(position)) {
+
+                Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
+                tileOfSelectedFigure.getChildren().clear();
+                tile.getChildren().add(selectedFigure);
+                selectedFigure.setPosition(tile.getPosition());
+            }
+        });
     }
 
     /**

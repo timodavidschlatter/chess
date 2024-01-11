@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 import logic.board.Game;
 import logic.board.Position;
 
+import java.util.List;
+
 public abstract class Figure extends Label {
 
     private Color color;
@@ -20,7 +22,7 @@ public abstract class Figure extends Label {
         this.setOnMouseClicked(this::handleMouseClick); // Add event handler for mouse click
     }
 
-    public abstract void move();
+    public abstract List<Position> move();
 
     /**
      * Handles a mouse click on the figure and executes the selectFigure() method of the Game object.
@@ -40,5 +42,9 @@ public abstract class Figure extends Label {
 
     public Position getPosition() {
         return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

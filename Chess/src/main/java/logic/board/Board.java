@@ -86,11 +86,21 @@ public class Board {
         return rows;
     }
 
+    private Row getRow(int index) {
+        return rows[index];
+    }
+
     /**
      * returns number of tiles (per row/column)
      * @return
      */
     public int getNumOfTiles() {
         return numOfTiles;
+    }
+
+    public Tile getTile(Position position) {
+        int rowNumber = numOfTiles - 1 - position.getRowNumber();
+        int columnNumber = position.getColumnNumber();
+        return getRow(rowNumber).getTile(columnNumber);
     }
 }

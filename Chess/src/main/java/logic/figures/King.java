@@ -3,6 +3,9 @@ package logic.figures;
 import javafx.scene.paint.Color;
 import logic.board.Position;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class King extends Figure {
 
     private final static String UNICODE_BLACK = "\u265A";
@@ -15,7 +18,7 @@ public class King extends Figure {
 
     //TODO
     @Override
-    public void move() {
-
+    public List<Position> move() {
+        return new ArrayList<Position>();
     }
 }

@@ -57,4 +57,8 @@ public class Row {
     public Tile[] getTiles() {
         return tiles;
     }
+
+    public Tile getTile(int index) {
+        return tiles[index];
+    }
 }
