@@ -101,24 +101,25 @@ public class Game {
             }
         }
 
+        if (!canTheFigureMoveToTheSelectedTile) {
+            return;
+        }
+
         // TODO the knight is allowed to jump over figures
 
         if (!areTilesInBetweenStartAndEndEmpty(selectedFigure.getPosition(), tile.getPosition())) {
             return;
         }
 
-        if (canTheFigureMoveToTheSelectedTile) {
-            Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
-            tileOfSelectedFigure.getChildren().clear();
-            tile.getChildren().add(selectedFigure);
-            selectedFigure.setPosition(tile.getPosition());
-        }
+        Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
+        tileOfSelectedFigure.getChildren().clear();
+        tile.getChildren().add(selectedFigure);
+        selectedFigure.setPosition(tile.getPosition());
+
     }
 
     private static boolean areTilesInBetweenStartAndEndEmpty(Position start, Position end) {
-        /*
-         * Ich muss x1 mit x2 vergleichen und y1 mit y2
-         */
+
         int startRowNumber = start.getRowNumber();
         int endRowNumber = end.getRowNumber();
 
@@ -160,7 +161,6 @@ public class Game {
                 counter++;
             }
         } else {
-            // TODO what if rownumbers are the same?
             for (int i = 0; i < (difference - 1); i++) {
                 positions.get(i).setColumnNumber(startColumnNumber);
             }
