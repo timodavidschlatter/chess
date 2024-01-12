@@ -119,50 +119,32 @@ public class Game {
     }
 
     private static boolean areTilesInBetweenStartAndEndEmpty(Position start, Position end) {
-
-        int startRowNumber = start.getRowNumber();
-        int endRowNumber = end.getRowNumber();
-
-        int startColumnNumber = start.getColumnNumber();
-        int endColumnNumber = end.getColumnNumber();
+        int startRowNum = start.getRowNumber();
+        int endRowNum = end.getRowNumber();
+        int startColNum = start.getColumnNumber();
+        int endColNum = end.getColumnNumber();
 
         List<Position> positions = new ArrayList<>();
-        int difference = Math.abs(startColumnNumber - endColumnNumber);
 
-        if (startRowNumber < endRowNumber) {
-            for (int i = startRowNumber + 1; i < endRowNumber; i++) {
-                Position position = new Position(i, 0);
-                positions.add(position);
-            }
-        } else if (endRowNumber < startRowNumber) {
-            for (int i = startRowNumber - 1; i > endRowNumber; i--) {
-                Position position = new Position(i, 0);
-                positions.add(position);
-            }
-        } else {
-            // what if rownumbers are the same?
-            for (int i = 0; i < (difference - 1); i++) {
-                Position position = new Position(startRowNumber, 0);
-                positions.add(position);
-            }
+        int rowDiff = Math.abs(startRowNum - endRowNum);
+        int colDiff = Math.abs(startColNum - endColNum);
+
+        int rowIncrement = (startRowNum < endRowNum) ? 1 : -1;
+        int colIncrement = (startColNum < endColNum) ? 1 : -1;
+
+        for (int i = 1; i < rowDiff; i++) {
+            int rowNum = startRowNum + (i * rowIncrement);
+            Position position = new Position(rowNum, startColNum);
+            positions.add(position);
         }
 
-        int counter = 0;
-        difference = Math.abs(startRowNumber - endRowNumber);
-
-        if (startColumnNumber < endColumnNumber) {
-            for (int i = startColumnNumber + 1; i < endColumnNumber; i++) {
-                positions.get(counter).setColumnNumber(i);
-                counter++;
-            }
-        } else if (endColumnNumber < startColumnNumber) {
-            for (int i = startColumnNumber - 1; i > endColumnNumber; i--) {
-                positions.get(counter).setColumnNumber(i);
-                counter++;
-            }
-        } else {
-            for (int i = 0; i < (difference - 1); i++) {
-                positions.get(i).setColumnNumber(startColumnNumber);
+        for (int i = 1; i < colDiff; i++) {
+            int colNum = startColNum + (i * colIncrement);
+            if (rowDiff == 0) {
+                Position position = new Position(startRowNum, colNum);
+                positions.add(position);
+            } else {
+                positions.get(i - 1).setColumnNumber(colNum);
             }
         }
 
