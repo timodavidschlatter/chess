@@ -7,9 +7,9 @@ public class Position {
     private int rowNumber;
     private int columnNumber;
 
-    public Position(int x, int y) {
-        this.rowNumber = x;
-        this.columnNumber = y;
+    public Position(int rowNumber, int columnNumber) {
+        this.rowNumber = rowNumber;
+        this.columnNumber = columnNumber;
     }
 
     public int getRowNumber() {
@@ -39,5 +39,13 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(rowNumber, columnNumber);
+    }
+
+    public void setRowNumber(int rowNumber) {
+        this.rowNumber = rowNumber;
+    }
+
+    public void setColumnNumber(int columnNumber) {
+        this.columnNumber = columnNumber;
     }
 }

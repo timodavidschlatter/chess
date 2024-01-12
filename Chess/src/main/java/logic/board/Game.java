@@ -10,9 +10,11 @@
 
 package logic.board;
 
+import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import logic.figures.Figure;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -89,20 +91,88 @@ public class Game {
             }
         }
 
-        // TODO
         List<Position> positions = selectedFigure.move();
-        //positions.forEach(System.out::println);
+        boolean canTheFigureMoveToTheSelectedTile = false;
 
-        positions.forEach(position -> {
-            System.out.println(position);
-            if (tile.getPosition().equals(position)) {
-
-                Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
-                tileOfSelectedFigure.getChildren().clear();
-                tile.getChildren().add(selectedFigure);
-                selectedFigure.setPosition(tile.getPosition());
+        for (Position position : positions) {
+            if (position.equals(tile.getPosition())) {
+                canTheFigureMoveToTheSelectedTile = true;
+                break;
             }
-        });
+        }
+
+        // TODO the knight is allowed to jump over figures
+
+        if (!areTilesInBetweenStartAndEndEmpty(selectedFigure.getPosition(), tile.getPosition())) {
+            return;
+        }
+
+        if (canTheFigureMoveToTheSelectedTile) {
+            Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
+            tileOfSelectedFigure.getChildren().clear();
+            tile.getChildren().add(selectedFigure);
+            selectedFigure.setPosition(tile.getPosition());
+        }
+    }
+
+    private static boolean areTilesInBetweenStartAndEndEmpty(Position start, Position end) {
+        /*
+         * Ich muss x1 mit x2 vergleichen und y1 mit y2
+         */
+        int startRowNumber = start.getRowNumber();
+        int endRowNumber = end.getRowNumber();
+
+        int startColumnNumber = start.getColumnNumber();
+        int endColumnNumber = end.getColumnNumber();
+
+        List<Position> positions = new ArrayList<>();
+        int difference = Math.abs(startColumnNumber - endColumnNumber);
+
+        if (startRowNumber < endRowNumber) {
+            for (int i = startRowNumber + 1; i < endRowNumber; i++) {
+                Position position = new Position(i, 0);
+                positions.add(position);
+            }
+        } else if (endRowNumber < startRowNumber) {
+            for (int i = startRowNumber - 1; i > endRowNumber; i--) {
+                Position position = new Position(i, 0);
+                positions.add(position);
+            }
+        } else {
+            // what if rownumbers are the same?
+            for (int i = 0; i < (difference - 1); i++) {
+                Position position = new Position(startRowNumber, 0);
+                positions.add(position);
+            }
+        }
+
+        int counter = 0;
+        difference = Math.abs(startRowNumber - endRowNumber);
+
+        if (startColumnNumber < endColumnNumber) {
+            for (int i = startColumnNumber + 1; i < endColumnNumber; i++) {
+                positions.get(counter).setColumnNumber(i);
+                counter++;
+            }
+        } else if (endColumnNumber < startColumnNumber) {
+            for (int i = startColumnNumber - 1; i > endColumnNumber; i--) {
+                positions.get(counter).setColumnNumber(i);
+                counter++;
+            }
+        } else {
+            // TODO what if rownumbers are the same?
+            for (int i = 0; i < (difference - 1); i++) {
+                positions.get(i).setColumnNumber(startColumnNumber);
+            }
+        }
+
+        for (Position position : positions) {
+            if (!board.getTile(position).getChildren().isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
