@@ -10,7 +10,6 @@
 
 package logic.board;
 
-import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import logic.figures.Figure;
 
@@ -107,7 +106,7 @@ public class Game {
 
         // TODO the knight is allowed to jump over figures
 
-        if (!areTilesInBetweenStartAndEndEmpty(selectedFigure.getPosition(), tile.getPosition())) {
+        if (!areTilesInBetweenEmpty(selectedFigure.getPosition(), tile.getPosition())) {
             return;
         }
 
@@ -118,7 +117,14 @@ public class Game {
 
     }
 
-    private static boolean areTilesInBetweenStartAndEndEmpty(Position start, Position end) {
+    /**
+     * Checks if the tiles between a movement are empty (-> not blocked by other figures).
+     * This function does not check if the desired position is blocked (by a figure of the same color)!
+     * @param start The start position of the figure
+     * @param end The desired end position of the figure
+     * @return true if the tiles in between are empty, false otherwise
+     */
+    private static boolean areTilesInBetweenEmpty(Position start, Position end) {
         int startRowNum = start.getRowNumber();
         int endRowNum = end.getRowNumber();
         int startColNum = start.getColumnNumber();
@@ -132,29 +138,32 @@ public class Game {
         int rowIncrement = (startRowNum < endRowNum) ? 1 : -1;
         int colIncrement = (startColNum < endColNum) ? 1 : -1;
 
+        // A figure cannot stay on the same spot
+        if (rowDiff == 0 && colDiff == 0) {
+            return false;
+        }
+
+        /*
+         * Covers moveUp, moveDown fully and sets the correct rowNum
+         * for all diagonal movements.
+         */
         for (int i = 1; i < rowDiff; i++) {
             int rowNum = startRowNum + (i * rowIncrement);
-            Position position = new Position(rowNum, startColNum);
-            positions.add(position);
+            positions.add(new Position(rowNum, startColNum));
         }
 
         for (int i = 1; i < colDiff; i++) {
             int colNum = startColNum + (i * colIncrement);
+
+            // Covers moveRight, moveLeft fully.
             if (rowDiff == 0) {
-                Position position = new Position(startRowNum, colNum);
-                positions.add(position);
-            } else {
+                positions.add(new Position(startRowNum, colNum));
+            } else { // Sets the correct colNum for all diagonal movements.
                 positions.get(i - 1).setColumnNumber(colNum);
             }
         }
 
-        for (Position position : positions) {
-            if (!board.getTile(position).getChildren().isEmpty()) {
-                return false;
-            }
-        }
-
-        return true;
+        return positions.stream().allMatch(position -> board.getTile(position).getChildren().isEmpty());
     }
 
     /**
