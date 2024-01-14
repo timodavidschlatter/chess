@@ -63,13 +63,6 @@ public class Game {
 
 
     public static void moveFigure(Tile clickedTile) {
-        /*
-         * 1 Das Tile wird nicht durch eines meiner eigenen Truppen blockiert
-         * 2 Die Tiles welche in meinem Bewegungsfeld sind, werden nicht durch meine eigenen Truppen blockiert
-         * 3 Wohin kann ich mich bewegen? move() Methode von der Figur ausführen.
-         * 4
-         */
-
         // TODO
         if (clickedTile == null) {
             System.out.println("Unexpected error");
@@ -100,11 +93,11 @@ public class Game {
             return;
         }
 
+        /* The actual movement */
         Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
-        tileOfSelectedFigure.getChildren().clear();
-        clickedTile.getChildren().add(selectedFigure);
-        selectedFigure.setPosition(clickedTile.getPosition());
-
+        tileOfSelectedFigure.getChildren().clear(); // Remove the figure from the start tile.
+        clickedTile.getChildren().add(selectedFigure); // Add the figure to the clicked tile.
+        selectedFigure.setPosition(clickedTile.getPosition()); // Set the new position to the moved figure.
     }
 
     /**
