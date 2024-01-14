@@ -13,6 +13,7 @@ package logic.board;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import logic.figures.Figure;
+import logic.figures.Knight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,7 @@ public class Game {
 
 
     public static void moveFigure(Tile clickedTile) {
-        // TODO
+        // TODO add error handling
         if (clickedTile == null) {
             System.out.println("Unexpected error");
         }
@@ -73,24 +74,24 @@ public class Game {
             System.out.println("This should not be possible");
         }
 
-        // The figure cannot move on a figure of the same color.
+        /* The figure cannot move on a figure of the same color. */
         if (isClickedTileBlockedBySameColor(clickedTile)) {
             return;
         }
 
-        // The figure cannot move on the clicked tile.
+        /* The figure cannot move on the clicked tile. */
         if (!canFigureMoveOnClickedTile(clickedTile)) {
             return;
         }
 
-        /* The figure cannot move to the selected tile because
-         * the tiles in between are blocked by other figures.
-         * TODO the knight is allowed to jump over figures
-         */
-        if (!areTilesInBetweenEmpty(
-                selectedFigure.getPosition(),
-                clickedTile.getPosition())) {
-            return;
+
+         /* The knight is allowed to jump over figures */
+        if (!(selectedFigure instanceof Knight)) {
+            /* The figure cannot move to the selected tile because
+             * the tiles in between are blocked by other figures. */
+            if (!areTilesInBetweenEmpty(selectedFigure.getPosition(), clickedTile.getPosition())) {
+                return;
+            }
         }
 
         /* The actual movement */
@@ -183,8 +184,8 @@ public class Game {
     }
 
     /**
-     * returns board
-     * @return
+     * Return the playing board.
+     * @return the board.
      */
     public Board getBoard() {
         return board;
