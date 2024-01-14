@@ -81,12 +81,8 @@ public class Game {
         }
 
         // The figure cannot move on a figure of the same color.
-        List<Node> children = clickedTile.getChildren();
-        if (!children.isEmpty()) {
-            Figure figure = (Figure) children.get(0); // TODO without casting?
-            if (figure.getColor().equals(turn)) {
-                return;
-            }
+        if (isClickedTileBlockedBySameColor(clickedTile)) {
+            return;
         }
 
         // The figure cannot move on the clicked tile.
@@ -109,6 +105,21 @@ public class Game {
         clickedTile.getChildren().add(selectedFigure);
         selectedFigure.setPosition(clickedTile.getPosition());
 
+    }
+
+    /**
+     * Checks if the clicked tile is blocked by the same color.
+     * @param clickedTile The clicked tile by the player
+     * @return true if the clicked tile is blocked by a figure of the same color, false otherwise
+     */
+    private static boolean isClickedTileBlockedBySameColor(Tile clickedTile) {
+        List<Node> children = clickedTile.getChildren();
+
+        if (!children.isEmpty()) {
+            Figure figure = (Figure) children.get(0); // TODO without casting?
+            return figure.getColor().equals(turn);
+        }
+        return false;
     }
 
     /**
