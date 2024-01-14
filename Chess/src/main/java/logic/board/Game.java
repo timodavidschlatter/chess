@@ -62,7 +62,7 @@ public class Game {
     }
 
 
-    public static void moveFigure(Tile tile) {
+    public static void moveFigure(Tile clickedTile) {
         /*
          * 1 Das Tile wird nicht durch eines meiner eigenen Truppen blockiert
          * 2 Die Tiles welche in meinem Bewegungsfeld sind, werden nicht durch meine eigenen Truppen blockiert
@@ -71,17 +71,17 @@ public class Game {
          */
 
         // TODO
-        if (tile == null) {
+        if (clickedTile == null) {
             System.out.println("Unexpected error");
         }
 
         // TODO add error handling
-        if (tile.getChildren().size() > 1) {
+        if (clickedTile.getChildren().size() > 1) {
             System.out.println("This should not be possible");
         }
 
-        // The figure cannot move on a figure of the same color
-        List<Node> children = tile.getChildren();
+        // The figure cannot move on a figure of the same color.
+        List<Node> children = clickedTile.getChildren();
         if (!children.isEmpty()) {
             Figure figure = (Figure) children.get(0); // TODO without casting?
             if (figure.getColor().equals(turn)) {
@@ -89,31 +89,44 @@ public class Game {
             }
         }
 
-        List<Position> positions = selectedFigure.move();
-        boolean canTheFigureMoveToTheSelectedTile = false;
-
-        for (Position position : positions) {
-            if (position.equals(tile.getPosition())) {
-                canTheFigureMoveToTheSelectedTile = true;
-                break;
-            }
-        }
-
-        if (!canTheFigureMoveToTheSelectedTile) {
+        // The figure cannot move on the clicked tile.
+        if (!canFigureMoveOnClickedTile(clickedTile)) {
             return;
         }
 
-        // TODO the knight is allowed to jump over figures
-
-        if (!areTilesInBetweenEmpty(selectedFigure.getPosition(), tile.getPosition())) {
+        /* The figure cannot move to the selected tile because
+         * the tiles in between are blocked by other figures.
+         * TODO the knight is allowed to jump over figures
+         */
+        if (!areTilesInBetweenEmpty(
+                selectedFigure.getPosition(),
+                clickedTile.getPosition())) {
             return;
         }
 
         Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
         tileOfSelectedFigure.getChildren().clear();
-        tile.getChildren().add(selectedFigure);
-        selectedFigure.setPosition(tile.getPosition());
+        clickedTile.getChildren().add(selectedFigure);
+        selectedFigure.setPosition(clickedTile.getPosition());
 
+    }
+
+    /**
+     * Checks all the positions a figure can move to by its possible movements.
+     * This function does not check if the tiles in between its current position and
+     * the selected position are empty!
+     * @param clickedTile The clicked tile by the player
+     * @return true if the figure can move by its possible movements on the clicked tile, false otherwise
+     */
+    private static boolean canFigureMoveOnClickedTile(Tile clickedTile) {
+        List<Position> positions = selectedFigure.move();
+
+        for (Position position : positions) {
+            if (position.equals(clickedTile.getPosition())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
