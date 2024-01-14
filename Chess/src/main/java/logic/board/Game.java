@@ -10,6 +10,7 @@
 
 package logic.board;
 
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import logic.figures.Figure;
 
@@ -79,14 +80,12 @@ public class Game {
             System.out.println("This should not be possible");
         }
 
-        // The figure cannot move on a figur of the same color
-        if (tile.getChildren().size() > 0) {
-            Figure figure = (Figure) tile.getChildren().get(0); // TODO without casting?
-
-            if (figure != null) {
-                if (figure.getColor().equals(turn)) {
-                    return;
-                }
+        // The figure cannot move on a figure of the same color
+        List<Node> children = tile.getChildren();
+        if (!children.isEmpty()) {
+            Figure figure = (Figure) children.get(0); // TODO without casting?
+            if (figure.getColor().equals(turn)) {
+                return;
             }
         }
 
