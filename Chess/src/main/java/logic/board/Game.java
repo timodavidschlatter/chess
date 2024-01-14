@@ -62,7 +62,11 @@ public class Game {
         }
     }
 
-
+    /**
+     * Does various necessary checks if the figure is even allowed to move
+     * to the clicked tile. If it is, it actually moves the figure to the new position.
+     * @param clickedTile The clicked tile by the player.
+     */
     public static void moveFigure(Tile clickedTile) {
         // TODO add error handling
         if (clickedTile == null) {
@@ -84,7 +88,6 @@ public class Game {
             return;
         }
 
-
          /* The knight is allowed to jump over figures */
         if (!(selectedFigure instanceof Knight)) {
             /* The figure cannot move to the selected tile because
@@ -103,7 +106,7 @@ public class Game {
 
     /**
      * Checks if the clicked tile is blocked by the same color.
-     * @param clickedTile The clicked tile by the player
+     * @param clickedTile The clicked tile by the player.
      * @return true if the clicked tile is blocked by a figure of the same color, false otherwise
      */
     private static boolean isClickedTileBlockedBySameColor(Tile clickedTile) {
