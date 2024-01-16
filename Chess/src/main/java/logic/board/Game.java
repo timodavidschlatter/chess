@@ -68,40 +68,45 @@ public class Game {
      * @param clickedTile The clicked tile by the player.
      */
     public static void moveFigure(Tile clickedTile) {
-        // TODO add error handling
-        if (clickedTile == null) {
-            System.out.println("Unexpected error");
-        }
 
-        // TODO add error handling
-        if (clickedTile.getChildren().size() > 1) {
-            System.out.println("This should not be possible");
-        }
+        try {
 
-        /* The figure cannot move on a figure of the same color. */
-        if (isClickedTileBlockedBySameColor(clickedTile)) {
-            return;
-        }
-
-        /* The figure cannot move on the clicked tile. */
-        if (!canFigureMoveOnClickedTile(clickedTile)) {
-            return;
-        }
-
-         /* The knight is allowed to jump over figures */
-        if (!(selectedFigure instanceof Knight)) {
-            /* The figure cannot move to the selected tile because
-             * the tiles in between are blocked by other figures. */
-            if (!areTilesInBetweenEmpty(selectedFigure.getPosition(), clickedTile.getPosition())) {
+            if (clickedTile.getChildren().size() > 1) {
+                System.err.println("Unexpected error: There are more than one figure on the same tile.");
                 return;
             }
-        }
 
-        /* The actual movement */
-        Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
-        tileOfSelectedFigure.getChildren().clear(); // Remove the figure from the start tile.
-        clickedTile.getChildren().add(selectedFigure); // Add the figure to the clicked tile.
-        selectedFigure.setPosition(clickedTile.getPosition()); // Set the new position to the moved figure.
+            /* The figure cannot move on a figure of the same color. */
+            if (isClickedTileBlockedBySameColor(clickedTile)) {
+                return;
+            }
+
+            /* The figure cannot move on the clicked tile. */
+            if (!canFigureMoveOnClickedTile(clickedTile)) {
+                return;
+            }
+
+            /* The knight is allowed to jump over figures */
+            if (!(selectedFigure instanceof Knight)) {
+                /* The figure cannot move to the selected tile because
+                 * the tiles in between are blocked by other figures. */
+                if (!areTilesInBetweenEmpty(selectedFigure.getPosition(), clickedTile.getPosition())) {
+                    return;
+                }
+            }
+
+            /* The actual movement */
+            Tile tileOfSelectedFigure = board.getTile(selectedFigure.getPosition());
+            tileOfSelectedFigure.getChildren().clear(); // Remove the figure from the start tile.
+            clickedTile.getChildren().add(selectedFigure); // Add the figure to the clicked tile.
+            selectedFigure.setPosition(clickedTile.getPosition()); // Set the new position to the moved figure.
+
+        } catch(NullPointerException exception) {
+            System.err.println("Unexpected error: The clicked tile by the player is null.");
+            exception.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     /**
