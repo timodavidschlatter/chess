@@ -8,10 +8,13 @@
  * Copyright notice: -
  */
 
-package logic.board;
+package view;
 
 import javafx.scene.paint.Color;
 import logic.figures.*;
+import view.Position;
+import view.Row;
+import view.Tile;
 
 /**
  * Class displays a board which contains rows and columns

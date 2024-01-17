@@ -3,8 +3,8 @@ package logic.figures;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import logic.board.Game;
-import logic.board.Position;
+import logic.Game;
+import view.Position;
 
 import java.util.List;
 

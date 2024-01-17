@@ -8,7 +8,7 @@
  * Copyright notice: -
  */
 
-package logic.board;
+package view;
 
 import javafx.scene.paint.Color;
 

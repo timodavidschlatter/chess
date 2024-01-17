@@ -31,10 +31,9 @@ public class Start extends Application {
     /**
      * Creates controlStation with parameter stage and shows start window
      * @param stage
-     * @throws Exception
      */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         ControlStation controlStation = new ControlStation(stage);
         controlStation.showGameView();
     }

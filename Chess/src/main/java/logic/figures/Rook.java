@@ -1,7 +1,7 @@
 package logic.figures;
 
 import javafx.scene.paint.Color;
-import logic.board.Position;
+import view.Position;
 import logic.helper.Movement;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package logic.board;
+package view;
 
 import java.util.Objects;
 

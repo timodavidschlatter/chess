@@ -8,9 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import logic.board.Board;
-import logic.board.Game;
-import logic.board.Tile;
+import view.Board;
+import logic.Game;
+import view.Tile;
 
 public class GameController extends Controller {
 

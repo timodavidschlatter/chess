@@ -1,6 +1,6 @@
 package logic.helper;
 
-import logic.board.Position;
+import view.Position;
 
 import java.util.ArrayList;
 import java.util.List;

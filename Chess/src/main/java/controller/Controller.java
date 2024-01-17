@@ -24,12 +24,4 @@ public abstract class Controller {
     public Controller(ControlStation controlStation) {
         this.controlStation = controlStation;
     }
-
-    /**
-     * Returns controlStation
-     * @return
-     */
-    public ControlStation getControlStation() {
-        return controlStation;
-    }
 }

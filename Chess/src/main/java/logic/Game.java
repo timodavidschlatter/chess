@@ -8,12 +8,15 @@
  * Copyright notice: -
  */
 
-package logic.board;
+package logic;
 
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import logic.figures.Figure;
 import logic.figures.Knight;
+import view.Board;
+import view.Position;
+import view.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.List;
 /**
  * Class displays in game scenario
  * TODO Do I need instances of 'Game' or can it be static?
+ * TODO Can I remove static altogether?
  */
 public class Game {
 
@@ -40,12 +44,8 @@ public class Game {
      * @param figure The figure which was clicked by the player.
      */
     public static void selectFigure(Figure figure) {
-        try {
 
-            // TODO Does this make sense?
-            if (figure == null) {
-                throw new NullPointerException();
-            }
+        try {
 
             // Deselect the previously selected figure if any
             if (selectedFigure != null) {
@@ -54,8 +54,9 @@ public class Game {
 
             selectedFigure = figure;
             selectedFigure.setStyle("-fx-background-color: lightblue;");
+
         } catch (NullPointerException exception) {
-            System.err.println("Unexpected error. A figure should not be null within this method");
+            System.err.println("Unexpected error. The figure selected by the player is null.");
             exception.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();

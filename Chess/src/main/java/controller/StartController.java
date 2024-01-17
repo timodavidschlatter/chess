@@ -11,7 +11,7 @@
 package controller;
 
 import javafx.fxml.FXML;
-import logic.board.Game;
+import logic.Game;
 
 /**
  * Class responsible for all functions on StartView.fxml

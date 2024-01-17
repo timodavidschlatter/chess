@@ -8,7 +8,7 @@
  * Copyright notice: -
  */
 
-package logic.board;
+package view;
 
 import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
@@ -17,6 +17,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import logic.Game;
 
 /**
  * Class displays a tile from the chessboard
