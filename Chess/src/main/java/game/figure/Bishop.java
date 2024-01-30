@@ -17,7 +17,6 @@ public class Bishop extends Figure {
         super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
     }
 
-    //TODO
     @Override
     public List<Position> move() {
         Position position = this.getPosition();

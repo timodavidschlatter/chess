@@ -25,23 +25,25 @@ public abstract class Figure {
     }
 
     /**
-     * This checks if the clicked figure can be selected and adds styling to it.
-     * @param figure The figure which was clicked by the player.
+     * Executes the {@link #selectFigure}
+     * @param runnable
      */
     private void onMouseClickSelectFigure(Runnable runnable) {
-        try {
-            System.out.println("Figure was clicked.");
-            selectFigure.accept(this);
-        } catch (NullPointerException exception) {
-            System.err.println("Unexpected error. The figure selected by the player is null.");
-            exception.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
+        System.out.println("Figure was clicked.");
+        selectFigure.accept(this);
+
     }
 
+    /**
+     * Returns the possible movements. No checks are made in this case (e.g. if a figure blocks the path).
+     * @return A list of all the possible positions the figure can move to.
+     */
     public abstract List<Position> move();
 
+    /**
+     * Returns the built figure view as a Region (for more interchangeability).
+     * @return Figure view built by the FigureViewBuilder.
+     */
     public Region getView() {
         return figureViewBuilder.build();
     }
