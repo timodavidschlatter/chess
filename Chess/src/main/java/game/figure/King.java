@@ -1,6 +1,5 @@
-package logic.figures;
+package game.figure;
 
-import game.figure.Figure;
 import javafx.scene.paint.Color;
 import logic.helper.Position;
 
@@ -17,7 +16,6 @@ public class King extends Figure {
         super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
     }
 
-    //TODO
     @Override
     public List<Position> move() {
         Position position = this.getPosition();

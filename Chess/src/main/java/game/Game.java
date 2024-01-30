@@ -4,7 +4,6 @@ import game.figure.*;
 import game.tile.Tile;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-import logic.figures.King;
 import logic.helper.Position;
 
 import java.util.ArrayList;

@@ -1,21 +1,15 @@
 package game;
 
-import controller.FXMLController;
-import game.tile.Tile;
 import game.tile.TileView;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Font;
-import logic.figures.*;
-import logic.helper.Position;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class GameFxmlController {
 

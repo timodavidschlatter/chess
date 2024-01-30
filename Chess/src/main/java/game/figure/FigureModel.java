@@ -12,10 +12,6 @@ public class FigureModel {
         this.unicodeFigure = unicodeFigure;
     }
 
-    public boolean isIsSelected() {
-        return isSelected.get();
-    }
-
     public BooleanProperty isSelectedProperty() {
         return isSelected;
     }

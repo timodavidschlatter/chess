@@ -1,6 +1,5 @@
 package game.tile;
 
-import game.figure.Figure;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
