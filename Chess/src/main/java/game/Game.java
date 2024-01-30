@@ -20,10 +20,18 @@ public class Game {
     private Figure selectedFigure;
     private Color turn = Color.WHITE;
 
+    /**
+     * Returns the built game view as a Region (for more interchangeability).
+     * @return Game view built by the GameViewBuilder.
+     */
     public Region getView() {
         return gameViewBuilder.build();
     }
 
+    /**
+     * Creates the tiles, adds it to the local board array and uses the reference to
+     * the game view (GameViewBuilder) to add the tile view to it.
+     */
     public void createBoard() {
         for (int i = 0; i < board.length; i++) {
             Color color = i % 2 == 0 ? Color.GRAY : Color.WHITE;
@@ -37,7 +45,10 @@ public class Game {
         }
     }
 
-    public void addFigures() {
+    /**
+     * Creates the figures and adds them to the board via {@link #addFigureToBoard(Figure, int, int)}.
+     */
+    public void createAndAddFigures() {
 
         int rowWhiteFigures = 7, rowWhitePawns = 6;
         int rowBlackFigures = 0, rowBlackPawns = 1;
@@ -103,7 +114,14 @@ public class Game {
     }
 
 
-
+    /**
+     * The method to move a figure. Executes multiple checks to allow the move.
+     * 1. Checks if the clicked tile is not blocked by a figure of the same color via {@link #isClickedTileBlockedBySameColor(Tile)}
+     * 2. Checks the possible movements of the figure via {@link #canFigureMoveOnClickedTile(Tile)}
+     * 3. Checks if tiles in between are empty via {@link #areTilesInBetweenEmpty(Position, Position)}
+     *
+     * @param clickedTile The tile that the figure should move to.
+     */
     private void moveFigure(Tile clickedTile) {
 
         if (selectedFigure == null) {
@@ -135,6 +153,7 @@ public class Game {
             }
         }
 
+        /* The actual movement */
         selectedFigure.setPosition(clickedTile.getPosition());
         clickedTile.setChildFigure(selectedFigure);
 
@@ -232,6 +251,11 @@ public class Game {
         });
     }
 
+    /**
+     * The method that is injected to the game view (GameViewBuilder) via constructor
+     * to be executed on a user click on the figure. The method sets the variable {@link #selectedFigure}
+     * @param figure The figure that was clicked on by the user.
+     */
     private void setSelectedFigure(Figure figure) {
 
         if (selectedFigure != null) {

@@ -10,7 +10,6 @@
 
 package start;
 
-import controller.ControlStation;
 import game.Game;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -45,6 +44,6 @@ public class Start extends Application {
         stage.show();
 
         gameController.createBoard();
-        gameController.addFigures();
+        gameController.createAndAddFigures();
     }
 }

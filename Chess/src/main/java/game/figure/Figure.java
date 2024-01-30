@@ -14,7 +14,6 @@ public abstract class Figure {
     private final FigureViewBuilder figureViewBuilder;
     private Position position;
     private final Consumer<Figure> selectFigure;
-    //private final String figureName;
 
     public Figure(String unicodeBlack, String unicodeWhite, Color color, Position position, Consumer<Figure> selectFigure) {
         this.color = color;
@@ -23,23 +22,7 @@ public abstract class Figure {
         this.figureViewBuilder = new FigureViewBuilder(figureModel, unicodeFigure, this::onMouseClickSelectFigure);
         this.position = position;
         this.selectFigure = selectFigure;
-        //this.figureName = figureName;
     }
-
-    /*private void onMouseClick(Runnable runnable) {
-        // TODO Enhance code, (remove switch case) use OO, remove redundancy
-        switch (figureName) {
-            case "Bishop":
-                System.out.println("Hurensohn");
-                break;
-            case "Queen":
-                System.out.println("You're fucked!");
-                break;
-            default:
-                System.out.println("Ich kann kein Englisch, du spasst.");
-                break;
-        }
-    }*/
 
     /**
      * This checks if the clicked figure can be selected and adds styling to it.
