@@ -1,7 +1,5 @@
 package logic.helper;
 
-import view.Position;
-
 import java.util.ArrayList;
 import java.util.List;
 

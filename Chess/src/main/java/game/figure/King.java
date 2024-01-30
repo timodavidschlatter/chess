@@ -1,19 +1,20 @@
 package logic.figures;
 
+import game.figure.Figure;
 import javafx.scene.paint.Color;
-import view.Position;
+import logic.helper.Position;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class King extends Figure {
 
     private final static String UNICODE_BLACK = "\u265A";
     private final static String UNICODE_WHITE = "\u2654";
 
-    public King(Color color, Position position) {
-        super(UNICODE_BLACK, UNICODE_WHITE, color, position, "King");
-        //super.setLabelText(unicode_black, unicode_white);
+    public King(Color color, Position position, Consumer<Figure> selectFigure) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
     }
 
     //TODO

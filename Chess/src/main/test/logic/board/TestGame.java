@@ -1,7 +1,7 @@
 package logic.board;
 
-import logic.Game;
-import logic.figures.Figure;
+import logic.GameOld;
+import game.figure.Figure;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,7 +14,7 @@ public class TestGame {
 
         // When and Then
         assertThatNullPointerException().isThrownBy(() -> {
-            Game.selectFigure(figure);
+            //GameOld.selectFigure(figure);
         });
     }
 }

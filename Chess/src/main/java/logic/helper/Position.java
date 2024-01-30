@@ -1,4 +1,4 @@
-package view;
+package logic.helper;
 
 import java.util.Objects;
 

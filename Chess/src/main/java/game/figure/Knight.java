@@ -1,18 +1,20 @@
-package logic.figures;
+
+package game.figure;
 
 import javafx.scene.paint.Color;
-import view.Position;
+import logic.helper.Position;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class Knight extends Figure {
 
     private final static String UNICODE_BLACK = "\u265E";
     private final static String UNICODE_WHITE = "\u2658";
 
-    public Knight(Color color, Position position) {
-        super(UNICODE_BLACK, UNICODE_WHITE, color, position, "Knight");
+    public Knight(Color color, Position position, Consumer<Figure> selectFigure) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
     }
 
     //TODO
@@ -33,3 +35,4 @@ public class Knight extends Figure {
         return positions;
     }
 }
+

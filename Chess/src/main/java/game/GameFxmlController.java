@@ -1,18 +1,23 @@
-package controller;
+package game;
 
+import controller.FXMLController;
+import game.tile.Tile;
+import game.tile.TileView;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import view.Board;
-import logic.Game;
-import view.Tile;
+import logic.figures.*;
+import logic.helper.Position;
 
-public class GameController extends Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class GameFxmlController {
 
     @FXML
     private GridPane rowIdentifier;
@@ -31,48 +36,38 @@ public class GameController extends Controller {
 
     @FXML
     private void initialize() {
+        //createBoard();
+        //addFigures();
         createGameView();
     }
 
-    private final Game game;
-    private final Board board;
-    private final int numOfTiles;
+    // TODO remove all 8 with a variable given by the controller
 
-    public GameController(ControlStation controlStation, Game game) {
-        super(controlStation);
-        this.game = new Game(); //TODO just for developing like this
-        //this.game = game;
-        this.board = this.game.getBoard();
-        this.numOfTiles = board.getNumOfTiles();
+    public void addTileToChessBoard(TileView tileView, int x, int y) {
+        //Adding Changelistener to the tiles and resize figures according to it - TODO: WTF? Was ist das ?
+        if(tileView.getChildren().toArray().length > 0) {
+            Label l = (Label) tileView.getChildren().get(0);
+            tileView.widthProperty().addListener((o, oldVal, newVal) -> {
+                l.setFont(Font.font(tileView.getWidth() / 2));
+                tileView.getChildren().remove(0);
+                tileView.getChildren().add(l);
+            });
+        }
+        chessBoard.add(tileView, x, y);
     }
 
     /**
      * Add tiles to the gridpanes (rowIdentifier, columnIdentifier, chessboard)
      */
     private void createGameView() {
-        int percent = 100;
-        rowIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
-        columnIdentifier.getRowConstraints().add(createRowConstraints(percent));
+        rowIdentifier.getColumnConstraints().add(createColumnConstraints(100));
+        columnIdentifier.getRowConstraints().add(createRowConstraints(100));
         createBenches();
 
-        for(int i = 0; i < numOfTiles; i++) {
-            addTileToRowIdentifier(numOfTiles - 1 - i + "", i);
+        for(int i = 0; i < 8; i++) {
+            addTileToRowIdentifier(8 - 1 - i + "", i);
             addTileToColumnIdentifier(i + "", i);
-
-            for(int j = 0; j < numOfTiles; j++) {
-                //Adding Changelistener to the tiles and resize figures according to it - TODO could be done better I think
-                Tile t = board.getRows()[i].getTiles()[j];
-                if(t.getChildren().toArray().length > 0) {
-                    Label l = (Label) t.getChildren().get(0);
-                    t.widthProperty().addListener((o, oldVal, newVal) -> {
-                        l.setFont(Font.font(t.getWidth() / 2));
-                        t.getChildren().remove(0);
-                        t.getChildren().add(l);
-                    });
-                }
-                chessBoard.add(t, j, i);
-            }
-            setGridConstraints(percent);
+            setGridConstraints(100);
         }
     }
 
@@ -81,11 +76,11 @@ public class GameController extends Controller {
      */
     private void createBenches() {
         int numOfCol = 2;
-        int percentHeight = 100 / numOfTiles;
+        int percentHeight = 100 / 8;
         int percentWidth = 100 / numOfCol;
 
         for(int i = 0; i < numOfCol; i++) {
-            for(int j = 0; j < numOfTiles; j++) {
+            for(int j = 0; j < 8; j++) {
                 blackBench.add(new Label(), i, j);
                 whiteBench.add(new Label(), i, j);
                 if(i == 1) {    //TODO
@@ -96,7 +91,6 @@ public class GameController extends Controller {
             blackBench.getColumnConstraints().add(createColumnConstraints(percentWidth));
             whiteBench.getColumnConstraints().add(createColumnConstraints(percentWidth));
         }
-
     }
 
     /**
@@ -104,7 +98,7 @@ public class GameController extends Controller {
      * @param percent - 0: set row- /column- identifier to 100% width/height, 1: set tiles width / height according to number of tiles
      */
     private void setGridConstraints(int percent) {
-        percent /= numOfTiles;
+        percent /= 8;
         rowIdentifier.getRowConstraints().add(createRowConstraints(percent));
         columnIdentifier.getColumnConstraints().add(createColumnConstraints(percent));
         chessBoard.getColumnConstraints().add(createColumnConstraints(percent));
@@ -149,7 +143,7 @@ public class GameController extends Controller {
      * @param position
      */
     private void addTileToColumnIdentifier(String text, int position) {
-        Label tile = createLabel(text, columnIdentifier.widthProperty().divide(numOfTiles));
+        Label tile = createLabel(text, columnIdentifier.widthProperty().divide(8));
         columnIdentifier.add(tile, position, 0);
     }
 
@@ -166,14 +160,27 @@ public class GameController extends Controller {
         return label;
     }
 
-    /**
-     * Create tile (StackPane) and add it to chessboard
-     * @param rowPos
-     * @param colPos
-     */
-    private void addTileToChessboard(int rowPos, int colPos, Color color) {
-        StackPane tile = new StackPane();
-        tile.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        chessBoard.add(tile, colPos, rowPos);
+
+
+
+    public void addFiguresToChessBoard(TileView tileView, Region figureView) {
+        // TODO Size of figures on board
+        /*VBox.setVgrow(figureView, Priority.ALWAYS);
+        HBox.setHgrow(figureView, Priority.ALWAYS);
+        figureView.prefWidthProperty().bind(columnIdentifier.widthProperty().divide(8));
+        figureView.prefHeightProperty().bind(rowIdentifier.widthProperty().divide(8));*/
+        tileView.getChildren().add(figureView);
+
     }
+
+    public void moveFigure(TileView oldTile, TileView newTile, Region figureView) {
+        oldTile.getChildren().clear(); // Remove the figure from the start tile.
+        newTile.getChildren().add(figureView); // Add the figure to the clicked tile.
+    }
+
+    /*public Tile getTile(Position position) {
+        int rowNumber = numOfTiles - 1 - position.getRowNumber();
+        int columnNumber = position.getColumnNumber();
+        return board[rowNumber][columnNumber];
+    }*/
 }

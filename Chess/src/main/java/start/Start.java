@@ -11,7 +11,9 @@
 package start;
 
 import controller.ControlStation;
+import game.Game;
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -34,7 +36,15 @@ public class Start extends Application {
      */
     @Override
     public void start(Stage stage) {
-        ControlStation controlStation = new ControlStation(stage);
-        controlStation.showGameView();
+        /*ControlStation controlStation = new ControlStation(stage);
+        controlStation.showGameView();*/
+        Game gameController = new Game();
+        Scene scene = new Scene(gameController.getView());
+        scene.getStylesheets().add(getClass().getResource("/css/game.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+
+        gameController.createBoard();
+        gameController.addFigures();
     }
 }

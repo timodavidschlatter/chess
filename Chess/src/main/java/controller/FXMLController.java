@@ -13,7 +13,7 @@ package controller;
 /**
  * Base abstract class controller
  */
-public abstract class Controller {
+public abstract class FXMLController {
 
     protected ControlStation controlStation;
 
@@ -21,7 +21,7 @@ public abstract class Controller {
      * Initialize controller with reference to controlStation
      * @param controlStation
      */
-    public Controller(ControlStation controlStation) {
+    public FXMLController(ControlStation controlStation) {
         this.controlStation = controlStation;
     }
 }

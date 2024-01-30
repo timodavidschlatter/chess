@@ -4,7 +4,7 @@
 
 ### UML class diagram
 
-This class diagram is roughly finished. It shows how the game logic is structured. There is no view class or controller class. 
+This class diagram is roughly finished. It shows how the gameOld logic is structured. There is no view class or controller class. 
 <img src="resources/01_uml_class_diagram.png" alt="UML class diagram" width="750">
 
 ### Mockups 
@@ -47,7 +47,7 @@ TODO
 
 ## Game Details
 ### Introduction
-Chess is a famous game for two players. Each player has the <b>same</b> set of figures and all of them have individual movement. The game is played on a 8x8 black/white squared battleground. The goal is to eliminate the other players <u>king</u>. To eliminate a figure put your figure on the space your enemies stand. There are some special rules that will be explained below. 
+Chess is a famous gameOld for two players. Each player has the <b>same</b> set of figures and all of them have individual movement. The gameOld is played on a 8x8 black/white squared battleground. The goal is to eliminate the other players <u>king</u>. To eliminate a figure put your figure on the space your enemies stand. There are some special rules that will be explained below. 
 
 ### Chessboard, Figures and movement
 <img src="resources/03_pictures/01_chessboard.png" alt="Chessboard 8x8" width="400px"> <img src="resources/03_pictures/02_figures.png" alt="Figures and their movements" width="500px">
@@ -60,7 +60,7 @@ Source: https://www.wikihow.com/Sample/Chessboard-Diagram, https://www.wikihow.c
 - <b>Eliminate figure</b>: Get on the same square as your opponents figure
 - <b>Check</b>: Each time your figures display a threat to your opponents king it is called check. Your opponent has to move his king away from the threat.
 #### Game endings
-- <b>Checkmate</b>: If your opponent can't move his king away from the threat, it is called checkmate. With checkmate the game is over and you've won. 
+- <b>Checkmate</b>: If your opponent can't move his king away from the threat, it is called checkmate. With checkmate the gameOld is over and you've won. 
 - <b>Draw</b>: If your opponent has only the king left but can't move it because all squares nearby are a threat, it is a draw. 
 #### Special
 - <b>Promotion</b>: If a Pawn reaches the opposite side of the board, it can be promoted to any piece
