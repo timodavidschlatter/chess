@@ -15,7 +15,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import logic.GameOld;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -28,7 +27,7 @@ public class ControlStation {
 
     private Stage stage;
     private Locale locale;
-    private GameOld gameOld;
+    // private GameOld gameOld;
     private final String baseName;
     private final String title;
 
@@ -90,8 +89,8 @@ public class ControlStation {
      * Sets the game after starting it (in StartController)
      * @param gameOld
      */
-    public void setGame(GameOld gameOld) {
+    /*public void setGame(GameOld gameOld) {
         this.gameOld = gameOld;
-    }
+    }*/
 
 }

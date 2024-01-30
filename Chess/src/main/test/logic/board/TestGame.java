@@ -1,6 +1,5 @@
 package logic.board;
 
-import logic.GameOld;
 import game.figure.Figure;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;

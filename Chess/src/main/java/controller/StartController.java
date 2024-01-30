@@ -11,7 +11,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import logic.GameOld;
 
 /**
  * Class responsible for all functions on StartView.fxml
@@ -31,8 +30,8 @@ public class StartController extends FXMLController {
      */
     @FXML
     public void startGame() {
-        GameOld gameOld = new GameOld();
+        /*GameOld gameOld = new GameOld();
         controlStation.setGame(gameOld);
-        controlStation.showGameView();
+        controlStation.showGameView();*/
     }
 }
