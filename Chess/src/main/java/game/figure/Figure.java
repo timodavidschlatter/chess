@@ -18,7 +18,7 @@ public abstract class Figure {
     public Figure(String unicodeBlack, String unicodeWhite, Color color, Position position, Consumer<Figure> selectFigure) {
         this.color = color;
         String unicodeFigure = color.equals(Color.BLACK) ? unicodeBlack : unicodeWhite;
-        this.figureModel = new FigureModel(unicodeFigure);
+        this.figureModel = new FigureModel();
         this.figureViewBuilder = new FigureViewBuilder(figureModel, unicodeFigure, this::onMouseClickSelectFigure);
         this.position = position;
         this.selectFigure = selectFigure;
@@ -31,7 +31,6 @@ public abstract class Figure {
     private void onMouseClickSelectFigure(Runnable runnable) {
         System.out.println("Figure was clicked.");
         selectFigure.accept(this);
-
     }
 
     /**

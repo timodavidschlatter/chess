@@ -23,13 +23,12 @@ public class FigureViewBuilder implements Builder<Region> {
     public Region build() {
         Label figureView = new Label(unicodeFigure);
 
-        // TODO Wahrscheinlich brauche ich kein Runnable hier
+        // TODO Kann ich das Runnable entfernen?
         figureView.setOnMouseClicked(evt ->  {
-
             clickFigure.accept(() -> {});
-
         });
 
+        /* Sets styling for the selected Figure. */
         figureModel.isSelectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 figureView.setStyle("-fx-background-color: lightblue;");
