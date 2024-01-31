@@ -15,7 +15,4 @@ public class TileModel {
         return hasFigure.get();
     }
 
-    public void setHasFigure(boolean hasFigure) {
-        this.hasFigure.set(hasFigure);
-    }
 }

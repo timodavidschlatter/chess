@@ -11,7 +11,8 @@
 package game.tile;
 
 import game.figure.Figure;
-import javafx.scene.Node;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import logic.helper.Position;
 
@@ -24,7 +25,7 @@ public class Tile {
 
     private final Position position;
     private final TileModel tileModel;
-    private final TileView tileView;
+    private final TileViewBuilder tileView;
     private final Consumer<Tile> moveFigure;
     private Figure childFigure;
 
@@ -35,17 +36,17 @@ public class Tile {
     public Tile(Color color, Position position, Consumer<Tile> moveFigure) {
         this.position = position;
         this.tileModel = new TileModel();
-        this.tileView = new TileView(tileModel, color, this::onMouseClick);
+        this.tileView = new TileViewBuilder(tileModel, color, this::onMouseClick);
         this.moveFigure = moveFigure;
     }
 
     private void onMouseClick(Runnable runnable) {
-        System.out.println("TIle was clicked.");
+        System.out.println("Tile was clicked.");
         moveFigure.accept(this);
     }
 
-    public TileView getView() {
-        return tileView;
+    public StackPane getView() {
+        return tileView.build();
     }
 
     public boolean hasChildren() {
@@ -59,7 +60,6 @@ public class Tile {
     public Position getPosition() {
         return position;
     }
-
 
     public Figure getChildFigure() {
         return childFigure;

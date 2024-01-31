@@ -1,14 +1,11 @@
 package game;
 
-import game.tile.TileView;
+import game.tile.TileViewBuilder;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
 public class GameFxmlController {
@@ -37,7 +34,7 @@ public class GameFxmlController {
 
     // TODO remove all 8 with a variable given by the controller
 
-    public void addTileToChessBoard(TileView tileView, int x, int y) {
+    public void addTileToChessBoard(StackPane tileView, int x, int y) {
         //Adding Changelistener to the tiles and resize figures according to it - TODO: WTF? Was ist das ?
         if(tileView.getChildren().toArray().length > 0) {
             Label l = (Label) tileView.getChildren().get(0);
@@ -157,7 +154,7 @@ public class GameFxmlController {
 
 
 
-    public void addFiguresToChessBoard(TileView tileView, Region figureView) {
+    public void addFiguresToChessBoard(StackPane tileView, Region figureView) {
         // TODO Size of figures on board
         /*VBox.setVgrow(figureView, Priority.ALWAYS);
         HBox.setHgrow(figureView, Priority.ALWAYS);
@@ -167,9 +164,10 @@ public class GameFxmlController {
 
     }
 
-    public void moveFigure(TileView oldTile, TileView newTile, Region figureView) {
+    public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView) {
         oldTile.getChildren().clear(); // Remove the figure from the start tile.
         newTile.getChildren().add(figureView); // Add the figure to the clicked tile.
+
     }
 
     /*public Tile getTile(Position position) {

@@ -1,10 +1,11 @@
 package game;
 
-import game.tile.TileView;
+import game.tile.TileViewBuilder;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.util.Builder;
 
 import java.io.IOException;
@@ -31,15 +32,15 @@ public class GameViewBuilder implements Builder<Region> {
         return new GridPane();
     }
 
-    public void addTileToChessBoard(TileView tileView, int x, int y) {
+    public void addTileToChessBoard(StackPane tileView, int x, int y) {
         gameFxmlController.addTileToChessBoard(tileView, x, y);
     }
 
-    public void addFiguresToChessBoard(TileView tileView, Region figureView) {
+    public void addFiguresToChessBoard(StackPane tileView, Region figureView) {
         gameFxmlController.addFiguresToChessBoard(tileView, figureView);
     }
 
-    public void moveFigure(TileView oldTile, TileView newTile, Region figureView) {
+    public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView) {
         gameFxmlController.moveFigure(oldTile, newTile, figureView);
     }
 }
