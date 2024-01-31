@@ -5,12 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 
 public class FigureModel {
 
-    private final String unicodeFigure;
     private final BooleanProperty isSelected = new SimpleBooleanProperty(false);
-
-    public FigureModel(String unicodeFigure) {
-        this.unicodeFigure = unicodeFigure;
-    }
 
     public BooleanProperty isSelectedProperty() {
         return isSelected;
