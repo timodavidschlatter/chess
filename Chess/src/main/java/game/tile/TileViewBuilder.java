@@ -1,7 +1,10 @@
 package game.tile;
 
 import javafx.beans.binding.Bindings;
+import javafx.collections.ListChangeListener;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.Builder;
@@ -22,6 +25,7 @@ public class TileViewBuilder implements Builder<StackPane> {
 
     }
 
+    // TODO: Vorteil vom Builder gegenüber direkt dem "extends StackPane"? Warum sollte ich das so machen wie ich es jetzt mache?
     @Override
     public StackPane build() {
         // TODO Das wird jedes mal neu gebildet. Das Tile muss wissen, welche Figur sie als Kind element hat.
@@ -29,6 +33,16 @@ public class TileViewBuilder implements Builder<StackPane> {
         tileView.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         tileView.setOnMouseClicked(evt -> clickTile.accept(() -> {})); // TODO Wahrscheinlich brauche ich kein Runnable hier
         tileModel.hasFigureProperty().bind(Bindings.isNotEmpty(tileView.getChildren()));
+        Bindings.bindContentBidirectional(tileView.getChildren(), tileModel.testProperty());
+
+        //tileView.getChildren().add(new Label(tileModel.getUnicodeOfFigure()));
+
+
+        /*if (tileView.getChildren().size() > 0) {
+            Node node = tileView.getChildren().get(0);
+            System.out.println(" Does this work? " + node.getAccessibleText());
+        }*/
+
         return tileView;
     }
 }
