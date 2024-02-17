@@ -33,15 +33,9 @@ public class TileViewBuilder implements Builder<StackPane> {
         tileView.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         tileView.setOnMouseClicked(evt -> clickTile.accept(() -> {})); // TODO Wahrscheinlich brauche ich kein Runnable hier
         tileModel.hasFigureProperty().bind(Bindings.isNotEmpty(tileView.getChildren()));
+
+        System.out.println("Initial testProperty: " + tileModel.testProperty().get());
         Bindings.bindContentBidirectional(tileView.getChildren(), tileModel.testProperty());
-
-        //tileView.getChildren().add(new Label(tileModel.getUnicodeOfFigure()));
-
-
-        /*if (tileView.getChildren().size() > 0) {
-            Node node = tileView.getChildren().get(0);
-            System.out.println(" Does this work? " + node.getAccessibleText());
-        }*/
 
         return tileView;
     }
