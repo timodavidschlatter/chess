@@ -1,6 +1,5 @@
 package game;
 
-import game.tile.TileViewBuilder;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;

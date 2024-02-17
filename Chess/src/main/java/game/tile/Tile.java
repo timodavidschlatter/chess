@@ -25,7 +25,7 @@ public class Tile {
 
     private final Position position;
     private final TileModel tileModel;
-    private final TileViewBuilder tileView;
+    private final TileView tileView;
     private final Consumer<Tile> moveFigure;
     private Figure childFigure;
 
@@ -36,7 +36,7 @@ public class Tile {
     public Tile(Color color, Position position, Consumer<Tile> moveFigure) {
         this.position = position;
         this.tileModel = new TileModel();
-        this.tileView = new TileViewBuilder(tileModel, color, this::onMouseClick);
+        this.tileView = new TileView(tileModel, color, this::onMouseClick);
         this.moveFigure = moveFigure;
     }
 
@@ -46,7 +46,7 @@ public class Tile {
     }
 
     public StackPane getView() {
-        return tileView.build();
+        return tileView;
     }
 
     public boolean hasChildren() {

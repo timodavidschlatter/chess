@@ -1,6 +1,5 @@
 package game;
 
-import game.tile.TileViewBuilder;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
