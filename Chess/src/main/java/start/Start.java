@@ -42,6 +42,7 @@ public class Start extends Application {
         scene.getStylesheets().add(getClass().getResource("/css/game.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+        stage.toFront();
 
         gameController.createBoard();
         gameController.createAndAddFigures();
