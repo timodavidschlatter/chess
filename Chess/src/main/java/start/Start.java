@@ -39,7 +39,6 @@ public class Start extends Application {
         controlStation.showGameView();*/
         Game gameController = new Game();
         Scene scene = new Scene(gameController.getView());
-        scene.getStylesheets().add(getClass().getResource("/css/game.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
         stage.toFront();

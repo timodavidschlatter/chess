@@ -25,22 +25,11 @@ public class GameTest {
 
     @Start
     public void start(Stage stage) throws Exception {
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GameView.fxml"), ResourceBundle.getBundle("Bundle", new Locale("en")));
-        gameFxmlController = new GameFxmlController();
-        loader.setController(gameFxmlController);
-        Parent mainNode = loader.load();
-
-        stage.setScene(new Scene(mainNode));
-        stage.show();
-        stage.toFront();*/
-
-        // TODO Das hier noch richtig umsetzen
-
         Game gameController = new Game();
         Scene scene = new Scene(gameController.getView());
-        scene.getStylesheets().add(getClass().getResource("/css/game.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+        stage.toFront();
 
         gameController.createBoard();
         gameController.createAndAddFigures();
