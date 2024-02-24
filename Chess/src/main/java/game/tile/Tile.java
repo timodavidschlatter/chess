@@ -41,7 +41,7 @@ public class Tile {
     }
 
     private void onMouseClick(Runnable runnable) {
-        System.out.println("Tile was clicked.");
+        runnable.run();
         moveFigure.accept(this);
     }
 

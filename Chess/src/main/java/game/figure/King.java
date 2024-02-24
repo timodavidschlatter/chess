@@ -12,8 +12,8 @@ public class King extends Figure {
     private final static String UNICODE_BLACK = "\u265A";
     private final static String UNICODE_WHITE = "\u2654";
 
-    public King(Color color, Position position, Consumer<Figure> selectFigure) {
-        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
+    public King(Color color, Position position, Consumer<Figure> selectFigure, String fxmlId) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure, fxmlId);
     }
 
     @Override

@@ -12,8 +12,8 @@ public class Pawn extends Figure {
     private final static String UNICODE_BLACK = "\u265F";
     private final static String UNICODE_WHITE = "\u2659";
 
-    public Pawn(Color color, Position position, Consumer<Figure> selectFigure) {
-        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
+    public Pawn(Color color, Position position, Consumer<Figure> selectFigure, String fxmlId) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure, fxmlId);
     }
 
     @Override

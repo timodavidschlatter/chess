@@ -13,8 +13,8 @@ public class Knight extends Figure {
     private final static String UNICODE_BLACK = "\u265E";
     private final static String UNICODE_WHITE = "\u2658";
 
-    public Knight(Color color, Position position, Consumer<Figure> selectFigure) {
-        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
+    public Knight(Color color, Position position, Consumer<Figure> selectFigure, String fxmlId) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure, fxmlId);
     }
 
     @Override

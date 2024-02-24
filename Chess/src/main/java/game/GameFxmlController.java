@@ -43,6 +43,7 @@ public class GameFxmlController {
                 tileView.getChildren().add(l);
             });
         }
+        tileView.setId("tile-" + x + y);
         chessBoard.add(tileView, x, y);
     }
 

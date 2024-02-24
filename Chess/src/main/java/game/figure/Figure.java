@@ -15,10 +15,11 @@ public abstract class Figure {
     private Position position;
     private final Consumer<Figure> selectFigure;
 
-    public Figure(String unicodeBlack, String unicodeWhite, Color color, Position position, Consumer<Figure> selectFigure) {
+    public Figure(String unicodeBlack, String unicodeWhite, Color color, Position position, Consumer<Figure> selectFigure, String fxmlId) {
         this.color = color;
         String unicodeFigure = color.equals(Color.BLACK) ? unicodeBlack : unicodeWhite;
         this.figureModel = new FigureModel();
+        figureModel.setFxmlId(fxmlId);
         this.figureViewBuilder = new FigureViewBuilder(figureModel, unicodeFigure, this::onMouseClickSelectFigure);
         this.position = position;
         this.selectFigure = selectFigure;
@@ -29,7 +30,7 @@ public abstract class Figure {
      * @param runnable
      */
     private void onMouseClickSelectFigure(Runnable runnable) {
-        System.out.println("Figure was clicked.");
+        runnable.run();
         selectFigure.accept(this);
     }
 

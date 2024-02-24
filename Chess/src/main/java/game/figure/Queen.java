@@ -14,8 +14,8 @@ public class Queen extends Figure {
     private final static String UNICODE_BLACK = "\u265B";
     private final static String UNICODE_WHITE = "\u2655";
 
-    public Queen(Color color, Position position, Consumer<Figure>  selectFigure) {
-        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure);
+    public Queen(Color color, Position position, Consumer<Figure>  selectFigure, String fxmlId) {
+        super(UNICODE_BLACK, UNICODE_WHITE, color, position, selectFigure, fxmlId);
     }
 
     @Override

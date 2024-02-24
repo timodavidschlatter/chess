@@ -53,42 +53,42 @@ public class Game {
         int rowBlackFigures = 0, rowBlackPawns = 1;
 
         for(int i = 0; i < numOfTiles; i++) {
-            Figure whitePawn = new Pawn(Color.WHITE, new Position(rowWhitePawns, i), this::setSelectedFigure);
-            Figure blackPawn = new Pawn(Color.BLACK, new Position(rowBlackPawns, i), this::setSelectedFigure);
+            Figure whitePawn = new Pawn(Color.WHITE, new Position(rowWhitePawns, i), this::setSelectedFigure, "whitePawn-" + i);
+            Figure blackPawn = new Pawn(Color.BLACK, new Position(rowBlackPawns, i), this::setSelectedFigure, "blackPawn-" + i);
             addFigureToBoard(whitePawn, rowWhitePawns, i);
             addFigureToBoard(blackPawn, rowBlackPawns, i);
 
             switch(i) {
                 case 0:
                 case 7:
-                    Figure whiteRook = new Rook(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure);
-                    Figure blackRook = new Rook(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure);
+                    Figure whiteRook = new Rook(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure, "whiteRook-" + i);
+                    Figure blackRook = new Rook(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure, "blackRook-" + i);
                     addFigureToBoard(whiteRook, rowWhiteFigures, i);
                     addFigureToBoard(blackRook, rowBlackFigures, i);
                     break;
                 case 2:
                 case 5:
-                    Figure whiteBishop = new Bishop(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure);
-                    Figure blackBishop = new Bishop(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure);
+                    Figure whiteBishop = new Bishop(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure, "whiteBishop-" + i);
+                    Figure blackBishop = new Bishop(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure, "blackBishop-" + i);
                     addFigureToBoard(whiteBishop, rowWhiteFigures, i);
                     addFigureToBoard(blackBishop, rowBlackFigures, i);
                     break;
                 case 1:
                 case 6:
-                    Figure whiteKnight = new Knight(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure);
-                    Figure blackKnight = new Knight(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure);
+                    Figure whiteKnight = new Knight(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure, "whiteKnight-" + i);
+                    Figure blackKnight = new Knight(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure, "blackKnight-" + i);
                     addFigureToBoard(whiteKnight, rowWhiteFigures, i);
                     addFigureToBoard(blackKnight, rowBlackFigures, i);
                     break;
                 case 3:
-                    Figure whiteQueen = new Queen(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure);
-                    Figure blackQueen = new Queen(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure);
+                    Figure whiteQueen = new Queen(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure, "whiteQueen-" + i);
+                    Figure blackQueen = new Queen(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure, "blackQueen-" + i);
                     addFigureToBoard(whiteQueen, rowWhiteFigures, i);
                     addFigureToBoard(blackQueen, rowBlackFigures, i);
                     break;
                 case 4:
-                    Figure whiteKing = new King(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure);
-                    Figure blackKing = new King(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure);
+                    Figure whiteKing = new King(Color.WHITE, new Position(rowWhiteFigures, i), this::setSelectedFigure, "whiteKing-" + i);
+                    Figure blackKing = new King(Color.BLACK, new Position(rowBlackFigures, i), this::setSelectedFigure, "blackKing-" + i);
                     addFigureToBoard(whiteKing, rowWhiteFigures, i);
                     addFigureToBoard(blackKing, rowBlackFigures, i);
                     break;
@@ -264,6 +264,5 @@ public class Game {
         figure.selectFigure(true);
         selectedFigure = figure;
 
-        System.out.println("Selected Figure: " + figure);
     }
 }

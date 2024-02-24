@@ -20,7 +20,10 @@ public class TileView extends StackPane {
 
         setOnMouseClicked(evt -> {
 
-            clickTile.accept(() -> {});// TODO Wahrscheinlich brauche ich kein Runnable hier
+            // TODO Wahrscheinlich brauche ich kein Runnable hier
+            clickTile.accept(() -> {
+                System.out.println("Tile " + this.getId() + " was clicked.");
+            });
 
         });
     }

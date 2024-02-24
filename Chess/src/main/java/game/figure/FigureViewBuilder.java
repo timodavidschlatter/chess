@@ -23,9 +23,10 @@ public class FigureViewBuilder implements Builder<Region> {
     public Region build() {
         Label figureView = new Label(unicodeFigure);
 
-        // TODO Kann ich das Runnable entfernen?
         figureView.setOnMouseClicked(evt ->  {
-            clickFigure.accept(() -> {});
+            clickFigure.accept(() -> {
+                System.out.println("Figure " + figureModel.getFxmlId() + " was clicked. ");
+            });
         });
 
         /* Sets styling for the selected Figure. */
@@ -36,6 +37,8 @@ public class FigureViewBuilder implements Builder<Region> {
                 figureView.setStyle("");
             }
         });
+
+        figureView.idProperty().bind(figureModel.fxmlIdProperty());
 
         return figureView;
     }
