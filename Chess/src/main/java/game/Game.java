@@ -163,6 +163,19 @@ public class Game {
 
         selectedFigure.selectFigure(false);
         selectedFigure = null;
+
+        changeTurn();
+    }
+
+    /**
+     * Changes the turn to the other color (WHITE <-> BLACK).
+     */
+    private void changeTurn() {
+        if (turn.equals(Color.WHITE)) {
+            turn = Color.BLACK;
+        } else {
+            turn = Color.WHITE;
+        }
     }
 
     /**
@@ -256,6 +269,11 @@ public class Game {
      * @param figure The figure that was clicked on by the user.
      */
     private void setSelectedFigure(Figure figure) {
+
+        // The game defines which color is able to be moved (and therefore also be selected)
+        if (!figure.getColor().equals(turn)) {
+            return;
+        }
 
         if (selectedFigure != null) {
             selectedFigure.selectFigure(false);
