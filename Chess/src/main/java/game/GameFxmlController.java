@@ -3,8 +3,10 @@ package game;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class GameFxmlController {
@@ -19,15 +21,13 @@ public class GameFxmlController {
     private GridPane columnIdentifier;
 
     @FXML
-    private GridPane blackBench;
+    private TilePane blackBench;
 
     @FXML
-    private GridPane whiteBench;
+    private TilePane whiteBench;
 
     @FXML
     private void initialize() {
-        //createBoard();
-        //addFigures();
         createGameView();
     }
 
@@ -53,34 +53,11 @@ public class GameFxmlController {
     private void createGameView() {
         rowIdentifier.getColumnConstraints().add(createColumnConstraints(100));
         columnIdentifier.getRowConstraints().add(createRowConstraints(100));
-        createBenches();
 
         for(int i = 0; i < 8; i++) {
             addTileToRowIdentifier(8 - 1 - i + "", i);
             addTileToColumnIdentifier(i + "", i);
             setGridConstraints(100);
-        }
-    }
-
-    /**
-     * Creates the benches for killed figures
-     */
-    private void createBenches() {
-        int numOfCol = 2;
-        int percentHeight = 100 / 8;
-        int percentWidth = 100 / numOfCol;
-
-        for(int i = 0; i < numOfCol; i++) {
-            for(int j = 0; j < 8; j++) {
-                blackBench.add(new Label(), i, j);
-                whiteBench.add(new Label(), i, j);
-                if(i == 1) {    //TODO
-                    blackBench.getRowConstraints().add(createRowConstraints(percentHeight));
-                    whiteBench.getRowConstraints().add(createRowConstraints(percentHeight));
-                }
-            }
-            blackBench.getColumnConstraints().add(createColumnConstraints(percentWidth));
-            whiteBench.getColumnConstraints().add(createColumnConstraints(percentWidth));
         }
     }
 
@@ -164,9 +141,21 @@ public class GameFxmlController {
 
     }
 
-    public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView) {
+    public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView, Color colorOfMovingFigure) {
+
+        /* Add killed figure to either the black or white bench. */
+        if (!newTile.getChildren().isEmpty()) {
+            Node killedFigure = newTile.getChildren().get(0);
+            newTile.getChildren().clear(); // Remove ('kill') the figure that is currently on the tile (if any).
+
+            if (colorOfMovingFigure.equals(Color.WHITE)) {
+                blackBench.getChildren().add(killedFigure);
+            } else {
+                whiteBench.getChildren().add(killedFigure);
+            }
+        }
+
         oldTile.getChildren().clear(); // Remove the figure from the start tile.
-        newTile.getChildren().clear(); // Remove ('kill') the figure that is currently on the tile (if any).
         newTile.getChildren().add(figureView); // Add the figure to the clicked tile.
     }
 }

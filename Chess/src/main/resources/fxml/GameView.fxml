@@ -18,10 +18,10 @@
     </columnConstraints>
     <children>
         <Label text="%gameView.pl2" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-        <GridPane fx:id="blackBench" styleClass="bench" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TilePane fx:id="blackBench" styleClass="bench" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
         <GridPane fx:id="rowIdentifier" id="rowIdentifier" styleClass="gridPane" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <GridPane fx:id="chessBoard" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-        <GridPane fx:id="whiteBench" styleClass="bench" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        <TilePane fx:id="whiteBench" styleClass="bench" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
         <GridPane fx:id="columnIdentifier" id="columnIdentifier" styleClass="gridPane" GridPane.columnIndex="2" GridPane.rowIndex="2" />
         <Label text="%gameView.pl1" GridPane.columnIndex="2" GridPane.rowIndex="3" />
     </children>

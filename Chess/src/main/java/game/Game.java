@@ -159,7 +159,8 @@ public class Game {
         gameViewBuilder.moveFigure(
                 board[oldPosition.getRowNumber()][oldPosition.getColumnNumber()].getView(),
                 clickedTile.getView(),
-                selectedFigure.getView());
+                selectedFigure.getView(),
+                selectedFigure.getColor());
 
         selectedFigure.selectFigure(false);
         selectedFigure = null;

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.util.Builder;
 
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class GameViewBuilder implements Builder<Region> {
         gameFxmlController.addFiguresToChessBoard(tileView, figureView);
     }
 
-    public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView) {
-        gameFxmlController.moveFigure(oldTile, newTile, figureView);
+    public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView, Color colorOfMovingFigure) {
+        gameFxmlController.moveFigure(oldTile, newTile, figureView, colorOfMovingFigure);
     }
 }
