@@ -166,13 +166,7 @@ public class GameFxmlController {
 
     public void moveFigure(StackPane oldTile, StackPane newTile, Region figureView) {
         oldTile.getChildren().clear(); // Remove the figure from the start tile.
+        newTile.getChildren().clear(); // Remove ('kill') the figure that is currently on the tile (if any).
         newTile.getChildren().add(figureView); // Add the figure to the clicked tile.
-
     }
-
-    /*public Tile getTile(Position position) {
-        int rowNumber = numOfTiles - 1 - position.getRowNumber();
-        int columnNumber = position.getColumnNumber();
-        return board[rowNumber][columnNumber];
-    }*/
 }

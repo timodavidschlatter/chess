@@ -19,12 +19,10 @@ public class TileView extends StackPane {
         model.hasFigureProperty().bind(Bindings.isNotEmpty(this.getChildren()));
 
         setOnMouseClicked(evt -> {
-
-            // TODO Wahrscheinlich brauche ich kein Runnable hier
             clickTile.accept(() -> {
                 System.out.println("Tile " + this.getId() + " was clicked.");
             });
-
         });
+
     }
 }
