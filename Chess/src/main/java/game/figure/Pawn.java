@@ -18,10 +18,7 @@ public class Pawn extends Figure {
 
     @Override
     public List<Position> move() {
-        /*
-         * TODO 3. Spezialregel en passant
-         * 4. Kill diagonal
-         */
+
         List<Position> positions = new ArrayList<>();
         Position position = this.getPosition();
         Color color = this.getColor();

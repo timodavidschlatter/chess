@@ -201,12 +201,62 @@ public class Game {
     private boolean canFigureMoveOnClickedTile(Tile clickedTile) {
         List<Position> positions = selectedFigure.move();
 
+        if (selectedFigure instanceof Pawn) {
+            specialMovementsOfPawn(positions);
+        }
+
         for (Position position : positions) {
             if (position.equals(clickedTile.getPosition())) {
                 return true;
             }
         }
         return false;
+    }
+
+    private void specialMovementsOfPawn(List<Position> positions) {
+        int currRowNr = selectedFigure.getPosition().getRowNumber();
+        int currColNr = selectedFigure.getPosition().getColumnNumber();
+
+        if (selectedFigure.getColor().equals(Color.WHITE)) {
+
+            // Attack diagonal left
+            if (board[currRowNr - 1][currColNr - 1].hasChildren()) {
+                positions.add(new Position(currRowNr - 1, currColNr - 1));
+            }
+
+            // Attack diagonal right
+            if (board[currRowNr - 1][currColNr + 1].hasChildren()) {
+                positions.add(new Position(currRowNr - 1, currColNr + 1));
+            }
+
+            // Pawn cannot attack forward
+            if (board[currRowNr - 1][currColNr].hasChildren()) {
+                positions.remove(new Position(currRowNr - 1, currColNr));
+            }
+            if (currRowNr == 6 && board[currRowNr - 2][currColNr].hasChildren()) {
+                positions.remove(new Position(currRowNr - 2, currColNr));
+            }
+
+        } else {
+
+            // Attack diagonal left
+            if (board[currRowNr + 1][currColNr + 1].hasChildren()) {
+                positions.add(new Position(currRowNr + 1, currColNr + 1));
+            }
+
+            // Attack diagonal right
+            if (board[currRowNr + 1][currColNr - 1].hasChildren()) {
+                positions.add(new Position(currRowNr + 1, currColNr - 1));
+            }
+
+            // Pawn cannot attack forward
+            if (board[currRowNr + 1][currColNr].hasChildren()) {
+                positions.remove(new Position(currRowNr + 1, currColNr));
+            }
+            if (currRowNr == 1 && board[currRowNr + 2][currColNr].hasChildren()) {
+                positions.remove(new Position(currRowNr + 2, currColNr));
+            }
+        }
     }
 
     /**
